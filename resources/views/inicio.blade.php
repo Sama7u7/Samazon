@@ -1,22 +1,8 @@
+@extends('layouts.masterGuest')
 
-<!DOCTYPE html>
-<html lang="en">
-<title>SAMAZON-TODO LO QUE BUSCAS</title>
+@section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
-<link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-<script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-</script>
-
-<body>
-
-@include('encabezados.header-usuarios')
+@section('content')
 
     <div class="row">
         <!-- ESPACIO A LOS LADOS -->
@@ -128,20 +114,4 @@
         </div>
         <!-- ESPACIO A LOS LADOS -->
         <div class="col-xl-2"></div>
-
-        <script>
-    // Función para capturar los datos del artículo y redirigir a pago.php
-    function addToCart(nombre, precio, cantidad, imagen) {
-        // Construir la URL con los datos del artículo
-        var url = 'pago.php?nombre=' + encodeURIComponent(nombre) + '&precio=' + encodeURIComponent(precio) + '&cantidad=' + encodeURIComponent(cantidad) + '&imagen=' + encodeURIComponent(imagen);
-        
-        // Redirigir a la página de pago con los datos del artículo adjuntos en la URL
-        window.location.href = url;
-    }
-</script>
-
-</body>
-
-
-
-</html>
+        @endsection

@@ -287,3 +287,13 @@ input[type="password"]::placeholder {
 * {
   box-sizing: border-box;
 }
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: static;
+    bottom: 0;
+    left: 0;
+}
