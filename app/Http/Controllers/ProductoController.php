@@ -21,6 +21,15 @@ class ProductoController extends Controller
         // Pasar los productos consignados a la vista para mostrarlos
         return view('cliente.inicio-cliente', ['productos' => $productosConsignados]);
     }
+
+    public function mostrarConsignadosguest()
+    {
+        // Recuperar todos los productos con estado 'consignado'
+        $productosConsignados = Producto::where('estado', 'consignado')->get();
+
+        // Pasar los productos consignados a la vista para mostrarlos
+        return view('guest.inicio-guest', ['productos' => $productosConsignados]);
+    }
     public function productosPorCategoria($categoriaId)
     {
         $categoria = Categoria::findOrFail($categoriaId);

@@ -9,10 +9,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li class="nav-item">
-          <a class="nav-link" href="/login">Actualizar</a>
+          <a class="nav-link" href="/supervisor">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Historial</a>
+          <a class="nav-link" href="#">Historial</a>
         </li>
         
       </ul>

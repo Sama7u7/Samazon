@@ -14,7 +14,6 @@
                             <img src="{{ $producto->imagen }}" class="card-img-top" alt="{{ $producto->nombre }}" target="_blank">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $producto->nombre }}</h5>
-                                <p class="card-text">{{ $producto->descripcion }}</p>
                                 <a href="#" class="btn btn-primary">Ver detalles</a>
                             </div>
                         </div>

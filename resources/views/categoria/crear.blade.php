@@ -1,4 +1,4 @@
-@extends('layouts.masterSupervisor')
+@extends('layouts.master-supervisor')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
@@ -22,5 +22,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection
