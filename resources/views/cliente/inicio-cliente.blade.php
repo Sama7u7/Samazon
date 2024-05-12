@@ -17,7 +17,7 @@
                     <img src="{{ $producto->imagen }}" class="card-img-top" alt="{{ $producto->nombre }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $producto->nombre }}</h5>
-                        <p class="card-text">{{ $producto->descripcion }}</p>
+                        
                         <!-- Botón para ver más detalles -->
                         <button class="btn btn-primary" data-toggle="modal" data-target="#detalleProducto{{ $producto->id }}">Ver</button>
                         <a href="#" class="btn btn-success">Anadir al carrito</a>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="modal-body">
                             <!-- Incluir la vista detalle-producto.blade.php para mostrar los detalles del producto -->
-                            @include('cliente.detalle-producto-cliente', ['producto' => $producto])
+                            @include('detalle-producto', ['producto' => $producto])
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
