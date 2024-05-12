@@ -4,10 +4,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto"> <!-- Movido a la derecha -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="/cliente">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categorias/cliente">Categorías</a>
+                    <a class="nav-link" href="/cliente/categorias">Categorías</a>
                 </li>
             </ul>
         </div>

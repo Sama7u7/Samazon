@@ -16,6 +16,9 @@ class LoginController extends Controller
         $user = Usuario::where('email', $credentials['email'])->first(); // Busca al usuario por su email
 
         if ($user && Hash::check($credentials['password'], $user->password)) {
+
+            // Guardar el ID del usuario en la sesión
+        $request->session()->put('user_id', Auth::id());
             // Si las credenciales son válidas, redirigir al usuario según su rol
             return redirect()->route($user->role); // Redirigir según el rol del usuario
         } else {

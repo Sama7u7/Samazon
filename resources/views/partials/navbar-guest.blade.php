@@ -10,7 +10,7 @@
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categorias">Categorías</a>
+                        <a class="nav-link" href="/categoriasuser">Categorías</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/login">Iniciar sesion</a> </li>
                 </ul>

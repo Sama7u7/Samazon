@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorías</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    @include('encabezados.header-clientes')
+@extends('layouts.master-cliente')
+
+@section('title', 'SAMAZON - TODO LO QUE BUSCAS')
+
+@section('content')
     <div class="container">
-        <h1>Lista de Categorías</h1>
+        <h1>Categorías</h1>
 
         <div class="row">
             @foreach ($categorias as $categoria)
@@ -27,5 +22,4 @@
         </div>
         
     </div>
-</body>
-</html>
+    @endsection

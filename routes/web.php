@@ -17,7 +17,7 @@ use App\Http\Controllers\ProductoController;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('guest.inicio-guest');
 });
 Route::get('/categoriasuser', [CategoriaController::class, 'indexuser'])->name('categorias.indexuser');
 Route::get('/productos/user/{categoria}', [ProductoController::class, 'productosPorCategoriaUser'])->name('productosPorCategoriaUser');
@@ -33,13 +33,13 @@ Route::get('/login', function () {
 Route::post('/login', [LoginController::class, 'valida'])->name('login'); 
 
 // Rutas para las vistas de los distintos roles
-Route::view('/cliente', 'inicio-cliente')->name('cliente');
-Route::get('/categorias/cliente', [CategoriaController::class, 'index2'])->name('categorias.index2');
-Route::get('/productos/{categoria}', [ProductoController::class, 'productosPorCategoria'])->name('productosPorCategoria');
+Route::get('/cliente', [ProductoController::class, 'mostrarConsignadoscliente'])->name('cliente');
+Route::get('/cliente/categorias', [CategoriaController::class, 'index2'])->name('categorias.index2');
+Route::get('/productos/cliente/{categoria}', [ProductoController::class, 'productosPorCategoria'])->name('productosPorCategoria');
 
 Route::view('/contador', 'inicio-contador')->name('contador');
 Route::view('/encargado', 'inicio-encargado')->name('encargado');
-Route::view('/supervisor', 'inicio-supervisor')->name('supervisor');
+Route::view('/supervisor', 'supervisor.inicio-supervisor')->name('supervisor');
 Route::view('/vendedor', 'inicio-vendedor')->name('vendedor');
 
 // CRUD CATEGORIAS

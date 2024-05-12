@@ -28,21 +28,21 @@ public function productosPorCategoriauser($categoriaId)
     {
         $categorias = Categoria::all();
     
-        return view('categorias', compact('categorias'));
+        return view('categoria.categorias', compact('categorias'));
     }
 
     public function index2()
     {
         $categorias = Categoria::all();
     
-        return view('categoriacliente', compact('categorias'));
+        return view('cliente.categoria-cliente', compact('categorias'));
     }
 
     public function indexuser()
     {
         $categorias = Categoria::all();
     
-        return view('categoriauser', compact('categorias'));
+        return view('guest.categoria-guest', compact('categorias'));
     }
 public function create()
 {

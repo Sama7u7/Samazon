@@ -1,4 +1,4 @@
-@extends('layouts.masterGuest')
+@extends('layouts.master-guest')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 

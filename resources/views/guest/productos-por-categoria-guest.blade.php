@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorías</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    @include('encabezados.header-clientes')
+@extends('layouts.master-guest')
+
+@section('title', 'SAMAZON - TODO LO QUE BUSCAS')
+
+@section('content')
     <div class="container">
         
 
@@ -21,7 +16,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $producto->nombre }}</h5>
                                 <p class="card-text">{{ $producto->descripcion }}</p>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
+                                <a href="/login" class="btn btn-primary">Ver detalles</a>
                             </div>
                         </div>
                     </div>
@@ -34,5 +29,4 @@
         </div>
         
     </div>
-</body>
-</html>
+    @endsection

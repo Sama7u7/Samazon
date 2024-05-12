@@ -1,4 +1,4 @@
-@extends('layouts.masterUser')
+@extends('layouts.master-supervisor')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <h1>Este es el apartado del supervisor</h1>
+            <h1>Hola supervisor</h1>
         </div>
     </div>
 </div>
