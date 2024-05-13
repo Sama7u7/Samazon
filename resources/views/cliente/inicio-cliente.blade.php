@@ -6,8 +6,11 @@
 
 
 <div class="container">
-    <h1 align='center'>Bienvenido a Samazon</h1>
-    <br>
+    @if($usuario)
+    <h1>Bienvenido, {{ $usuario->nombre }}</h1>
+@else
+    <p>No se encontró un usuario para este token.</p>
+@endif
     <h3>Productos</h3>
 
     <div class="row">
@@ -17,7 +20,7 @@
                     <img src="{{ $producto->imagen }}" class="card-img-top" alt="{{ $producto->nombre }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $producto->nombre }}</h5>
-                        
+                        <p class="card-text">{{ $producto->descripcion }}</p>
                         <!-- Botón para ver más detalles -->
                         <button class="btn btn-primary" data-toggle="modal" data-target="#detalleProducto{{ $producto->id }}">Ver</button>
                         <a href="#" class="btn btn-success">Anadir al carrito</a>

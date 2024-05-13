@@ -26,7 +26,7 @@
 <body>
     <header>
         <!-- Aquí puedes agregar el contenido del encabezado que se repetirá en todas las páginas -->
-        @include('partials.navbar-clientes')
+        @include('partials.header-encargado')
     </header>
 
     <main>

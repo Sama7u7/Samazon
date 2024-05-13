@@ -12,7 +12,7 @@ class ProductosSeeder extends Seeder
         // Crear 30 productos propuestos
         for ($i = 1; $i <= 30; $i++) {
             Producto::create([
-                'nombre' => "ProductoConsignado " . $i,
+                'nombre' => "Producto Consignado " . $i,
                 'imagen' => '', 
                 'estado' => 'consignado',
                 'fecha_publicacion' => date('Y-m-d'), 
@@ -27,7 +27,7 @@ class ProductosSeeder extends Seeder
 
         for ($i = 1; $i <= 20; $i++) {
             Producto::create([
-                'nombre' => "ProductoConsignado " . $i,
+                'nombre' => "Producto Propuesto " . $i,
                 'imagen' => '', 
                 'estado' => 'propuesto',
                 'fecha_publicacion' => date('Y-m-d'), 

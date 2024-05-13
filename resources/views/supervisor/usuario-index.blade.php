@@ -1,41 +1,38 @@
 @extends('layouts.master-supervisor')
 
-@section('title', 'SAMAZON - TODO LO QUE BUSCAS')
-
 @section('content')
 <div class="container">
-    <h1>Lista de Categorías</h1>
-
+    <h1>Lista de Usuarios</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>ID</th>
+                <th>Correo</th>
+                <th>Rol</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($categorias as $categoria)
+            @foreach($usuarios as $usuario)
                 <tr>
-                    <td>{{ $categoria->nombre }}</td>
+                    <td>{{ $usuario->id }}</td>
+                    <td>{{ $usuario->email }}</td>
+                    <td>{{ $usuario->role }}</td>
                     <td>
-                        <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" style="display: inline-block;">
+                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-primary">Editar</a>
+                        <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
-                        <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-primary">Editar</a>
+                        
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
 </div>
+
 
 @endsection

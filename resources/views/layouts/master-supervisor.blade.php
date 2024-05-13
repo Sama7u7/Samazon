@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <!-- Aquí puedes agregar tus estilos CSS -->
-    <link href="{{ asset('css/style2.css') }}"  rel="stylesheet">
+    <link href="{{ asset('css/style3.css') }}"  rel="stylesheet">
     <style>
         body {
             background-color: #f8f9fa;

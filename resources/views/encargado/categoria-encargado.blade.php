@@ -1,4 +1,4 @@
-@extends('layouts.master-cliente')
+@extends('layouts.master-encargado')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 

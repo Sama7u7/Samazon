@@ -15,6 +15,10 @@ class ClienteSeeder extends Seeder
     public function run()
     {
         Usuario::create([
+            'nombre' => 'Panfilo',
+            'apellido_paterno'=>'Pancracio',
+            'apellido_materno' => 'Saturnino',
+            'genero'=>'Masculino',
             'email' => 'cliente@gmail.com',
             'password' => bcrypt('cliente@gmail.com'),
             'role' => 'cliente',

@@ -6,6 +6,8 @@ use App\Http\Requests\StoreProductoRequest;
 use App\Http\Requests\UpdateProductoRequest;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Models\Usuario;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class ProductoController extends Controller
@@ -37,6 +39,19 @@ class ProductoController extends Controller
     
         return view('cliente.productos-por-categoria-cliente', compact('categoria', 'productos'));
     }
+
+
+    public function productosPorCategoriaencargado($categoriaId)
+    {
+        $categoria = Categoria::findOrFail($categoriaId);
+        $productos = Producto::where('categoria_id', $categoriaId)->get();
+    
+        return view('encargado.producto-por-categoria-encargado', compact('categoria', 'productos'));
+    }
+
+
+
+
     public function productosPorCategoriaUser($categoriaId)
     {
         $categoria = Categoria::findOrFail($categoriaId);
@@ -116,4 +131,33 @@ return view('producto.create',compact('categorias'));
         $producto->delete();
         return redirect(route('productos.index'));
     }
+
+    public function productosEncargado()
+    {
+        $productos = Producto::all();
+        return view('encargado.producto-no-consignados', compact('productos'));
+    }
+
+
+    public function editestado($id)
+{
+    $producto = Producto::findOrFail($id);
+    return view('encargado.editar-estado-producto', compact('producto'));
+}
+
+    public function updateeEstado(Request $request, $id)
+{
+    $producto = Producto::findOrFail($id);
+
+    // Actualizar el estado y motivo del producto
+    $producto->estado = $request->input('estado');
+    $producto->motivo = $request->input('motivo');
+
+    // Guardar los cambios en la base de datos
+    $producto->save();
+
+    return redirect()->route('productos.list')->with('success', 'Producto actualizado correctamente');
+}
+
+
 }

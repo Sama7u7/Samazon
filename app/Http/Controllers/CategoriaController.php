@@ -5,24 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Producto;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Auth;
 class CategoriaController extends Controller
 {
     
-    public function productosPorCategoria($categoriaId)
-{
-    $categoria = Categoria::findOrFail($categoriaId);
-    $productos = Producto::where('categoria_id', $categoriaId)->get();
-
-    return view('productos_por_categoria', compact('categoria', 'productos'));
-}
-public function productosPorCategoriauser($categoriaId)
-{
-    $categoria = Categoria::findOrFail($categoriaId);
-    $productos = Producto::where('categoria_id', $categoriaId)->get();
-
-    return view('productos_por_categoria', compact('categoria', 'productos'));
-}
 
     public function index()
     {
@@ -31,11 +18,23 @@ public function productosPorCategoriauser($categoriaId)
         return view('categoria.categorias', compact('categorias'));
     }
 
-    public function index2()
+    public function index2(Request $request)
     {
         $categorias = Categoria::all();
+        $token = $request->session()->get('api_token'); // Obtener el token
+        $usuario = Usuario::where('token', $token)->first(); // Obtener el usuario
+        return view('cliente.categoria-cliente', ['usuario' => $usuario, 'categorias' => $categorias]);
     
-        return view('cliente.categoria-cliente', compact('categorias'));
+        
+    }
+    public function indexencargado(Request $request)
+    {
+        $categorias = Categoria::all();
+        $token = $request->session()->get('api_token'); // Obtener el token
+        $usuario = Usuario::where('token', $token)->first(); // Obtener el usuario
+        return view('encargado.categoria-encargado', ['usuario' => $usuario, 'categorias' => $categorias]);
+    
+        
     }
 
     public function indexuser()
@@ -76,5 +75,24 @@ public function destroy($id)
         $categoria->delete();
         return redirect()->route('categorias.index')->with('success', 'Categoría eliminada correctamente');
     }
+
+    public function edit(Categoria $categoria)
+{
+    return view('categoria.edit', compact('categoria'));
+}
+public function update(Request $request, Categoria $categoria)
+{
+    // Valida los datos del formulario
+    $request->validate([
+        'nombre' => 'required|string|max:255', // Reglas de validación para el nombre
+    ]);
+
+    // Actualiza los datos de la categoría con los datos del formulario
+    $categoria->nombre = $request->nombre;
+    $categoria->save();
+
+    // Redirige de vuelta a la lista de categorías con un mensaje de éxito
+    return redirect()->route('categorias.index')->with('success', 'Categoría actualizada exitosamente.');
+}
 
 }

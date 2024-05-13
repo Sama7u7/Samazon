@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('role');
             $table->string('email');
+            $table->string('nombre')->nullable()->default(null);
+            $table->string('apellido_paterno')->nullable()->default(null);
+            $table->string('apellido_materno')->nullable()->default(null);
+            $table->enum('genero',['Masculino' , 'Femenino']);
             $table->string('password');
             $table->timestamps();
         });

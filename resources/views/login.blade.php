@@ -15,7 +15,8 @@
     <div id="formContent">
         <!-- Tabs Titles -->
         <h2 class="active">Iniciar sesion</h2>
-        <h2 class="inactive underlineHover">Crear cuenta</h2>
+        <h2 class="inactive underlineHover"><a href="/register"> Crear cuenta</a></h2>
+
 
         <!-- Icon -->
         <div class="fadeIn first">
@@ -44,4 +45,9 @@
     </div>
 </div>
 </div>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 </html>
