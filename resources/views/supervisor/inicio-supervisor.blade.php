@@ -65,12 +65,52 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">Vendedores</div>
+                <div class="card-header">Productos no consignados</div>
                 <div class="card-body">
                     <!-- Contenido de los vendedores aquí -->
+                    <style>
+                        .ver-btn {
+                            width: 100%;
+                        }
+                    </style>
+                    
+                    <ul>
+                        @foreach($productos as $producto)
+                            <li>
+                                <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
+                                <h5>{{ $producto->nombre }}</h5>
+                                <p>{{ $producto->descripcion }}</p>
+                                <!-- Botón para ver más detalles -->
+                                <button class="btn btn-primary ver-btn" data-toggle="modal" data-target="#detalleProducto{{ $producto->id }}">Ver</button>
+                            </li>
+
+                            <div class="modal fade" id="detalleProducto{{ $producto->id }}" tabindex="-1" role="dialog" aria-labelledby="detalleProducto{{ $producto->id }}Label" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="detalleProducto{{ $producto->id }}Label">Kardex del Producto</h5>
+                                           
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Incluir la vista detalle-producto.blade.php para mostrar los detalles del producto -->
+                                            @include('detalle-producto', ['producto' => $producto])
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </ul>
+                    
                 </div>
             </div>
+            
         </div>
+        
     </div>
 </div>
 

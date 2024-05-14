@@ -22,6 +22,17 @@ public function combinar(Request $request)
     // Pasar tanto el usuario como los productos consignados a la vista para mostrarlos
     return view('cliente.inicio-cliente', ['usuario' => $usuario, 'productos' => $productosConsignados]);
 }
+public function noconsignados(Request $request)
+{
+    $token = $request->session()->get('api_token'); // Obtener el token
+    $usuario = Usuario::where('token', $token)->first(); // Obtener el usuario
+
+    // Recuperar todos los productos con estado 'consignado'
+    $productosNoConsignados = Producto::where('estado', 'propuesto')->get();
+
+    // Pasar tanto el usuario como los productos consignados a la vista para mostrarlos
+    return view('supervisor.inicio-supervisor', ['usuario' => $usuario, 'productos' => $productosNoConsignados]);
+}
 public function crear()
 {
     return view('supervisor.crear-usuario');
