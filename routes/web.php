@@ -44,13 +44,16 @@ Route::post('/usuarios', [UsuarioController::class, 'store'])->name('usuarios.st
 Route::get('/usuarios/{usuario}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
 Route::put('/usuarios/{usuario}', [UsuarioController::class, 'update'])->name('usuarios.update');
 Route::delete('/usuarios/{usuario}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
-Route::get('/usuarios/{id}/show_reset_password_form', [UsuarioController::class, 'formularioContra'])->name('usuarios.show_reset_password_form');
-Route::post('/usuarios/{id}/reset_password', [UsuarioController::class, 'resetPassword'])->name('usuarios.reset_password');
+
 
 //Rutas rol  vendedor
-Route::view('/vendedor', 'inicio-vendedor')->name('vendedor');
+Route::view('/vendedor', 'vendedor.inicio-vendedor')->name('vendedor');
+
+
 //Rutas rol contador
-Route::view('/contador', 'inicio-contador')->name('contador');
+Route::view('/contador', 'contador.inicio-contador')->name('contador');
+
+
 //rutas rol encargado
 Route::view('/encargado', 'encargado.inicio-encargado')->name('encargado');
 Route::get('/encargado/categorias', [CategoriaController::class, 'indexencargado'])->name('encargado.indexencargado');
@@ -58,6 +61,12 @@ Route::get('/productos/encargado/{categoria}', [ProductoController::class, 'prod
 Route::get('/productos/{id}/edit', [ProductoController::class, 'editestado'])->name('productos.form');
 Route::get('/productos/no_consignados', [ProductoController::class, 'productosEncargado'])->name('productos.list');
 Route::put('/productos/{id}', [ProductoController::class, 'updateeEstado'])->name('productos.edit');
+Route::get('/encargado/usuarios-rol', [UsuarioController::class, 'indexroles'])->name('encargado.index');
+
+Route::get('/encargado/usuarios/{usuario}/edit', [UsuarioController::class, 'resetPassword'])->name('encargado.edit');
+Route::put('/encargado/usuarios/{usuario}', [UsuarioController::class, 'newpass'])->name('encargado.newppass');
+
+
 
 
 

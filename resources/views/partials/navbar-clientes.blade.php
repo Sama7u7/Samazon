@@ -18,7 +18,7 @@
                         Usuario
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Cambiar contraseña</a>
+                        <a class="dropdown-item" href="#">Otra opcion</a>
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST" class="text-center">
                             @csrf <!-- Agrega el token CSRF -->

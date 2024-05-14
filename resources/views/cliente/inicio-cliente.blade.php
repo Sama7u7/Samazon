@@ -6,6 +6,7 @@
 
 
 <div class="container">
+    
     @if($usuario)
     <h1>Bienvenido, {{ $usuario->nombre }}</h1>
 @else

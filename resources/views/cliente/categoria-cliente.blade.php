@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="container">
+        @if($usuario)
+        <h1>Bienvenido, {{ $usuario->nombre }}</h1>
+    @else
+        <p>No se encontró un usuario para este token.</p>
+    @endif
         
         <h1>Categorías</h1>
 
@@ -21,6 +26,7 @@
                 </div>
             @endforeach
         </div>
+        <div style="height: 380px;"></div>
         
     </div>
     @endsection

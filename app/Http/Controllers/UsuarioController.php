@@ -67,6 +67,11 @@ public function store(Request $request)
         $usuario = Usuario::findOrFail($id);
         return view('supervisor.edit-usuario', compact('usuario'));
     }
+    public function resetPassword($id)
+    {
+        $usuario = Usuario::findOrFail($id);
+        return view('encargado.edit-pass-usuario', compact('usuario'));
+    }
 
     public function update(Request $request, $id)
     {
@@ -90,6 +95,30 @@ public function store(Request $request)
         $usuario->save();
     
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado correctamente');
+    }
+
+
+
+    public function newpass(Request $request, $id)
+    {
+        $usuario = Usuario::findOrFail($id);
+        $usuario->email = $request->input('email');
+        $usuario->role = $request->input('role');
+        $usuario->nombre = $request->input('nombre');
+        $usuario->apellido_paterno = $request->input('apellido_paterno');
+        $usuario->apellido_materno = $request->input('apellido_materno');
+        $usuario->genero = $request->input('genero');
+       
+        // Actualizar la contraseña solo si se proporciona una nueva
+        $password = $request->input('password');
+        if (!empty($password)) {
+            $usuario->password = Hash::make($password);
+        }
+    
+        // Guardar los cambios en la base de datos
+        $usuario->save();
+    
+        return redirect()->route('encargado.index')->with('success', 'Usuario actualizado correctamente');
     }
     
 
@@ -127,6 +156,15 @@ public function store(Request $request)
         return redirect()->route('login')->with('success', '¡Registro exitoso! Ingresa a nuestra plataforma.');
     }
 
+    
+
+public function indexroles()
+{
+    // Obtener usuarios con roles específicos
+    $usuarios = Usuario::whereIn('role', ['encargado', 'contador', 'cliente'])->get();
+
+    return view('encargado.index-roles', compact('usuarios'));
+}
 
     
 }

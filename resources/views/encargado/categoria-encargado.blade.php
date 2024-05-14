@@ -10,7 +10,7 @@
         <div class="row">
             @foreach ($categorias as $categoria)
                 <div class="col-md-4 mb-4">
-                    <a href="{{ route('productosPorCategoria', ['categoria' => $categoria->id]) }}" class="card-link">
+                    <a href="{{ route('productosPorCategoriaencargado', ['categoria' => $categoria->id]) }}" class="card-link">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $categoria->nombre }}</h5>

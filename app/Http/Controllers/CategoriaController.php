@@ -37,12 +37,15 @@ class CategoriaController extends Controller
         
     }
 
-    public function indexuser()
+    public function indexuser(Request $request)
     {
         $categorias = Categoria::all();
+       
+
     
         return view('guest.categoria-guest', compact('categorias'));
     }
+
 public function create()
 {
     return view('categoria.crear');

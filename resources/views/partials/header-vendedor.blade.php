@@ -32,9 +32,23 @@
         </li>
         
       </ul>
-      <span class="navbar-text">
-        Vendedor
-      </span>
+      <ul class="navbar-nav mr-auto"> <!-- Movido a la izquierda -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Vendedor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Otra opcion</a>
+                <div class="dropdown-divider"></div>
+                <form action="{{ route('logout') }}" method="POST" class="text-center">
+                    @csrf <!-- Agrega el token CSRF -->
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                </form>
+            </div>
+        </li>
+        
+    </ul>
     </div>
   </div>
 </nav>
+
