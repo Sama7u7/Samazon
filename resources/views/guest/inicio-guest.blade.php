@@ -20,7 +20,7 @@
                         <h5 class="card-title">{{ $producto->nombre }}</h5>
                         
                         <!-- Botón para ver más detalles -->
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#detalleProducto{{ $producto->id }}">Ver</button>
+                        <a href="{{ route('productos.test', ['id' => $producto->id]) }}" class="btn btn-primary">Ver detalles</a>
                         <a href="/login" class="btn btn-success">Anadir al carrito</a>
                     </div>
                 </div>

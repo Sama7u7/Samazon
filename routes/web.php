@@ -72,7 +72,7 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
 });
 
 //rutas para no usuarios
-Route::get('/', [ProductoController::class, 'mostrarConsignadosguest'])->name('guest');
+Route::get('/', [ProductoController::class, 'mostrarConsignadosguest'])->name('guest.principal');
 Route::get('/categoriasuser', [CategoriaController::class, 'indexuser'])->name('categorias.indexuser');
 Route::get('/productos/user/{categoria}', [ProductoController::class, 'productosPorCategoriaUser'])->name('productosPorCategoriaUser');
 

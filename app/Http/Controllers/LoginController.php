@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken(); // Genera un nuevo token CSRF para la sesión
 
-        return redirect('/login'); // Redirige al usuario a la página de inicio de sesión
+        return redirect('/'); // Redirige al usuario a la página de inicio de sesión
     }
     
 }
