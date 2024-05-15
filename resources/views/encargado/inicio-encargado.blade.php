@@ -1,11 +1,12 @@
-@extends('layouts.master-encargado')
+@extends('layouts.master-usuarios')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
 @section('content')
 
    <div class="container mt-4">
-      <H1> Hola Encargado</H1>
+    <br>
+    <h1>Bienvenido, {{ session('nombre') }}</h1>
       <div class="row justify-content-center">
           <div class="col-md-6">
               <div class="card">

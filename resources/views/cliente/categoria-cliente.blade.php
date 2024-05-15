@@ -1,14 +1,10 @@
-@extends('layouts.master-cliente')
+@extends('layouts.master-usuarios')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
 @section('content')
     <div class="container">
-        @if($usuario)
-        <h1>Bienvenido, {{ $usuario->nombre }}</h1>
-    @else
-        <p>No se encontró un usuario para este token.</p>
-    @endif
+       <br>
         
         <h1>Categorías</h1>
 

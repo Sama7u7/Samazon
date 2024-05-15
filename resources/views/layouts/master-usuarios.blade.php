@@ -26,7 +26,29 @@
 <body>
     <header>
         <!-- Aquí puedes agregar el contenido del encabezado que se repetirá en todas las páginas -->
-        @include('partials.navbar-clientes')
+       <!-- Navbar dinámica -->
+       @if(Auth::check())
+       @switch(Auth::user()->role)
+           @case('cliente')
+               @include('partials.navbar-clientes')
+               @break
+           @case('supervisor')
+                @include('partials.header-supervisor')
+                @break
+            @case('encargado')
+                @include('partials.header-encargado')
+                @break
+            @case('vendedor')
+                @include('partials.header-vendedor')
+                @break
+            @case('contador')
+                @include('partials.header-contador')
+                @break 
+       @endswitch
+       @else
+       <!-- Navbar para usuarios no autenticados -->
+       @include('partials.navbar-guest')
+   @endif
     </header>
 
     <main>

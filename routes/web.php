@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PreguntaController;
+use App\Http\Controllers\RespuestaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,7 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
     Route::get('/cliente', [UsuarioController::class, 'combinar'])->name('cliente');
     Route::get('/cliente/categorias', [CategoriaController::class, 'index2'])->name('categorias.index2');
     Route::get('/productos/cliente/{categoria}', [ProductoController::class, 'productosPorCategoria'])->name('productosPorCategoria');
+    Route::post('/preguntas', [PreguntaController::class, 'store'])->name('preguntas.store');
 });
 
 //rutas para no usuarios
@@ -80,11 +83,12 @@ Route::post('/login', [AuthController::class, 'valida'])->name('login');
 
 Route::get('/register', function () {return view('registro');});
 Route::post('/register', [UsuarioController::class, 'register'])->name('register');
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('test/productos/{id}', [ProductoController::class, 'test'])->name('productos.test');
 
 
+Route::post('/respuestas', [RespuestaController::class, 'store'])->name('respuestas.store');
 
 Route::resource('categorias', CategoriaController::class);
 

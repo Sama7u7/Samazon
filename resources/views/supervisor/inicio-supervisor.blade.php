@@ -1,4 +1,4 @@
-@extends('layouts.master-supervisor')
+@extends('layouts.master-usuarios')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
@@ -7,7 +7,9 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <h1>Hola supervisor</h1>
+            <br>
+<h1>Bienvenido, {{ session('nombre') }}</h1>
+            
         </div>
     </div>
 </div>

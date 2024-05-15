@@ -159,5 +159,12 @@ return view('producto.create',compact('categorias'));
     return redirect()->route('productos.list')->with('success', 'Producto actualizado correctamente');
 }
 
+public function test($id)
+{
+    $producto = Producto::findOrFail($id);
+    return view('vista-pruebas', compact('producto'));
+}
+
+
 
 }

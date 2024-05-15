@@ -1,4 +1,4 @@
-@extends('layouts.master-guest')
+@extends('layouts.master-usuarios')
 
 @section('title', 'SAMAZON - TODO LO QUE BUSCAS')
 
@@ -16,7 +16,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $producto->nombre }}</h5>
                                 <p class="card-text">{{ $producto->descripcion }}</p>
-                                <a href="/login" class="btn btn-primary">Ver detalles</a>
+                                <a href="{{ route('productos.test', ['id' => $producto->id]) }}" class="btn btn-primary">Ver detalles</a>
                             </div>
                         </div>
                     </div>
