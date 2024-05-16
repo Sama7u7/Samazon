@@ -64,6 +64,8 @@ Route::middleware(['auth', 'role:vendedor'])->group(function () {
     Route::post('vendedor/guardar-respuesta/{preguntaId}', [VendedorController::class,'guardarRespuesta'])->name('guardar-respuesta');
     Route::get('vendedor/productos/{id}/edit', [ProductoController::class, 'Vendedoredit'])->name('productos.edit');
     Route::put('vendedor/productos/{producto}', [ProductoController::class, 'Vendedorupdate'])->name('productos.update');
+    Route::get('vendedor/producto/nuevo', [ProductoController::class, 'createProduct'])->name('vendedor.producto');
+    Route::post('vendedor/producto/crear', [ProductoController::class, 'storeProduct'])->name('vendedor.store.product');
 
 });
 

@@ -36,10 +36,11 @@ class ProductoController extends Controller
         // Pasar los productos consignados a la vista para mostrarlos
         return view('guest.inicio-guest', ['productos' => $productosConsignados]);
     }
+
     public function productosPorCategoria($categoriaId)
     {
         $categoria = Categoria::findOrFail($categoriaId);
-        $productos = Producto::where('categoria_id', $categoriaId)->get();
+        $productos = Producto::where('categoria_id', $categoriaId) ->where('estado', 'consignado')->get();
     
         return view('cliente.productos-por-categoria-cliente', compact('categoria', 'productos'));
     }
@@ -59,7 +60,7 @@ class ProductoController extends Controller
     public function productosPorCategoriaUser($categoriaId)
     {
         $categoria = Categoria::findOrFail($categoriaId);
-        $productos = Producto::where('categoria_id', $categoriaId)->get();
+        $productos = Producto::where('categoria_id', $categoriaId)->where('estado', 'consignado')->get();
     
         return view('guest.productos-por-categoria-guest', compact('categoria', 'productos'));
     }
@@ -258,6 +259,58 @@ public function Vendedoredit($id)
     
     // Redireccionar de vuelta con un mensaje de éxito
     return back()->with('success', 'La imagen se ha eliminado correctamente.');
+}
+
+
+
+public function createProduct()
+{
+    // Asegúrate de pasar las categorías a la vista si las estás utilizando
+    $categorias = \App\Models\Categoria::all();
+    return view('vendedor.crear', compact('categorias'));
+}
+
+public function storeProduct(Request $request)
+{
+    // Validar los datos recibidos del formulario
+    $request->validate([
+        'nombre' => 'required|string|max:255',
+        'descripcion' => 'required|string',
+        'cantidad' => 'required|integer',
+        'categoria_id' => 'required|exists:categorias,id',
+        'imagenes.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validar que las imágenes sean archivos de imagen válidos
+    ]);
+
+    // Crear el producto
+    $producto = new Producto();
+    $producto->nombre = $request->nombre;
+    $producto->descripcion = $request->descripcion;
+    $producto->estado = 'propuesto'; // Establecer el estado por defecto
+    $producto->fecha_publicacion = now(); // Establecer la fecha de publicación con la fecha actual
+    $producto->cantidad = $request->cantidad;
+    $producto->categoria_id = $request->categoria_id;
+    $producto->propietario_id = Auth::id(); // Asignar el ID del usuario autenticado como propietario del producto
+    $producto->save();
+
+    // Manejar la subida de las imágenes
+    if ($request->hasFile('imagenes')) {
+        foreach ($request->file('imagenes') as $imagen) {
+            $nombreImagen = time() . '-' . $imagen->getClientOriginalName();
+            $rutaImagen = public_path('images/productos/' . $nombreImagen);
+
+            // Guardar la imagen en la carpeta de imágenes de productos
+            $imagen->move(public_path('images/productos'), $nombreImagen);
+
+            // Crear la entrada de la imagen en la base de datos
+            $imagenProducto = new Imagen();
+            $imagenProducto->nombre = $nombreImagen;
+            $imagenProducto->producto_id = $producto->id;
+            $imagenProducto->save();
+        }
+    }
+
+    // Redirigir de vuelta con un mensaje de éxito
+    return redirect()->route('vendedor')->with('success', 'Producto creado correctamente.');
 }
 
 

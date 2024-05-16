@@ -18,7 +18,7 @@
                 <div class="card-header">Preguntas a productos</div> <!-- Encabezado de la tarjeta -->
                 <div class="card-body"> <!-- Cuerpo de la tarjeta -->
                     <div class="row text-center"> <!-- Fila centrada para los botones -->
-                        <div class="col-md-2 mb-3"> <!-- Columna de tamaño medio (4 columnas de ancho en pantallas medianas) con margen inferior -->
+                        <div class="col-md-12 mb-3"> <!-- Columna de tamaño medio (4 columnas de ancho en pantallas medianas) con margen inferior -->
                             <a href="{{ route('preguntas-vendedor') }}" class="btn btn-primary btn-lg">Ver preguntas</a> <!-- Botón "Crear" -->
                         </div>
                         
@@ -40,7 +40,7 @@
                 <div class="carousel-inner">
                     @foreach ($producto->imagenes as $key => $imagen)
                     <div class="carousel-item{{ $key == 0 ? ' active' : '' }}">
-                        <img src="{{ asset('images/productos/' . $imagen->nombre) }}" class="d-block mx-auto img-fluid" alt="{{ $producto->nombre }}">
+                    <img src="{{ asset('images/productos/' . $imagen->nombre) }}" class="d-block mx-auto img-fluid" alt="{{ $producto->nombre }}" style="max-width: 200px; margin: 0 auto;">
                     </div>
                     @endforeach
                 </div>
@@ -58,12 +58,14 @@
                 <p class="card-text">{{ $producto->descripcion }}</p>
                 <p class="card-text">{{ $producto->estado }}</p>
                 <p class="card-text">{{ $producto->motivo }}</p>
+                <center>
                 <!-- Agrega más detalles del producto según sea necesario -->
                 <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-primary"> Ver o editar detalles del producto</a>
-                
+                <br>
+                <br>
                 <!-- Botón para eliminar el producto -->
                 <button class="btn btn-danger" data-toggle="modal" data-target="#eliminarProductoModal{{ $producto->id }}">Eliminar producto</button>
-                
+</center>
                 <!-- Modal de confirmación de eliminación -->
                 <div class="modal fade" id="eliminarProductoModal{{ $producto->id }}" tabindex="-1" role="dialog" aria-labelledby="eliminarProductoModalLabel{{ $producto->id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">

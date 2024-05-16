@@ -26,7 +26,7 @@
         </li>
        
         <li class="nav-item">
-          <a class="nav-link" href="/login">Publicar producto </a>
+          <a class="nav-link" href="{{ route('vendedor.producto') }}">Publicar producto </a>
         </li>
         
       </ul>
