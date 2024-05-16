@@ -17,5 +17,9 @@ class Usuario extends Model implements AuthenticatableContract
         'password',
         'role',
     ];
+    public function productos()
+{
+    return $this->hasMany(Producto::class, 'propietario_id');
+}
 }
 

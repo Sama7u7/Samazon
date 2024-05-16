@@ -8,7 +8,7 @@
                 <div class="card-header">{{ $producto->nombre }}</div>
 
                 <div class="card-body">
-                    <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->nombre }}" class="img-fluid">
+                <img src="{{ asset('images/productos/' . $producto->imagen) }}" class="card-img-top" alt="{{ $producto->nombre }}" style="max-width: 200px;">
                     <p>{{ $producto->descripcion }}</p>
                     <p>Cantidad disponible: {{ $producto->cantidad }}</p>
                 </div>

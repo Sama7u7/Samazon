@@ -29,29 +29,34 @@ class ClienteSeeder extends Seeder
             'role' => 'cliente',
         ]);
         Usuario::create([
+            'nombre' => 'Michael',
             'email' => 'comprador1@gmail.com',
             'password' => bcrypt('comprador1@gmail.com'),
-            'role' => 'comprador/vendedor',
+            'role' => 'vendedor',
         ]);
         Usuario::create([
+            'nombre' => 'Franklin',
             'email' => 'comprador2@gmail.com',
             'password' => bcrypt('comprador2@gmail.com'),
-            'role' => 'comprador/vendedor',
+            'role' => 'cliente',
         ]);
         Usuario::create([
+            'nombre' => 'Miguel',
             'email' => 'comprador3@gmail.com',
             'password' => bcrypt('comprador3@gmail.com'),
-            'role' => 'comprador/vendedor',
+            'role' => 'vendedor',
         ]);
         Usuario::create([
+            'nombre' => 'Marie',
             'email' => 'comprador4@gmail.com',
             'password' => bcrypt('comprador4@gmail.com'),
-            'role' => 'comprador/vendedor',
+            'role' => 'cliente',
         ]);
         Usuario::create([
+            'nombre' => 'Itzury',
             'email' => 'comprador5@gmail.com',
             'password' => bcrypt('comprador5@gmail.com'),
-            'role' => 'comprador/vendedor',
+            'role' => 'vendedor',
         ]);
         
     }

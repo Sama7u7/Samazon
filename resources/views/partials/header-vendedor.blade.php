@@ -17,16 +17,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('vendedor') }}">Inicio</a>
+        </li>
         
         <li class="nav-item">
           <a class="nav-link" href="#">Ventas</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Listado</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Actualizar</a>
-        </li>
+       
         <li class="nav-item">
           <a class="nav-link" href="/login">Publicar producto </a>
         </li>

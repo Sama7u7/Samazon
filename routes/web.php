@@ -8,6 +8,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\RespuestaController;
+use App\Http\Controllers\VendedorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,14 @@ Route::middleware(['auth', 'role:encargado'])->group(function () {
 
 Route::middleware(['auth', 'role:vendedor'])->group(function () {
     
-    Route::view('/vendedor', 'vendedor.inicio-vendedor')->name('vendedor');
+    Route::get('/vendedor', [ProductoController::class, 'productosVendedor'])->name('vendedor');
+    Route::delete('vendedor/productos/{id}', [ProductoController::class, 'vendedordestroy'])->name('productos.destroy');
+    // Ruta para mostrar las preguntas y permitir responder
+    Route::get('/vendedor/preguntas', [VendedorController::class, 'preguntasVendedor'])->name('preguntas-vendedor');
+    Route::post('vendedor/guardar-respuesta/{preguntaId}', [VendedorController::class,'guardarRespuesta'])->name('guardar-respuesta');
+    Route::get('vendedor/productos/{id}/edit', [ProductoController::class, 'Vendedoredit'])->name('productos.edit');
+    Route::put('vendedor/productos/{producto}', [ProductoController::class, 'Vendedorupdate'])->name('productos.update');
+
 });
 
 Route::middleware(['auth', 'role:contador'])->group(function () {
@@ -78,7 +86,6 @@ Route::get('/productos/user/{categoria}', [ProductoController::class, 'productos
 
 
 Route::get('/login', function () {return view('login');});
-//Route::post('/login', [LoginController::class, 'valida'])->name('login'); 
 Route::post('/login', [AuthController::class, 'valida'])->name('login'); 
 
 Route::get('/register', function () {return view('registro');});
@@ -88,7 +95,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('test/productos/{id}', [ProductoController::class, 'test'])->name('productos.test');
 
 
-Route::post('/respuestas', [RespuestaController::class, 'store'])->name('respuestas.store');
+
+
 
 Route::resource('categorias', CategoriaController::class);
 

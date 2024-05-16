@@ -20,7 +20,7 @@ class ProductosSeeder extends Seeder
                 'descripcion' => 'Descripción del producto ' . $i,
                 'cantidad' => 1,
                 'categoria_id' => rand(1, 5), 
-                'propietario_id' => 1 
+                'propietario_id' => rand(14, 19)
                 
             ]);
         }
@@ -35,7 +35,7 @@ class ProductosSeeder extends Seeder
                 'descripcion' => 'Descripción del producto ' . $i,
                 'cantidad' => 1,
                 'categoria_id' => rand(1, 5), 
-                'propietario_id' => 1 
+                'propietario_id' => rand(14, 19)
             ]);
         }
         
@@ -48,7 +48,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Teléfono móvil de gama alta con pantalla AMOLED de 6.2 pulgadas, cámara de 64 MP, y 128 GB de almacenamiento.',
             'cantidad' => '5',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '14'
         ]);
         
         Producto::create([
@@ -60,7 +60,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Máquina de café automática que prepara diferentes tamaños de café con solo tocar un botón.',
             'cantidad' => '3',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '14'
         ]);
         
         Producto::create([
@@ -72,7 +72,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Termómetro sin contacto que mide la temperatura corporal con precisión en segundos.',
             'cantidad' => '2',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '15'
         ]);
         
         Producto::create([
@@ -84,7 +84,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Kit de herramientas con destornilladores de diferentes tamaños para reparaciones electrónicas y pequeñas.',
             'cantidad' => '10',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '15'
         ]);
         
         Producto::create([
@@ -96,7 +96,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Cámara de vigilancia con visión nocturna, detección de movimiento y transmisión en tiempo real a través de una aplicación móvil.',
             'cantidad' => '8',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '16'
         ]);
         
         Producto::create([
@@ -108,7 +108,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Auriculares sin cables con cancelación de ruido y micrófono integrado para llamadas manos libres.',
             'cantidad' => '3',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '16'
         ]);
         
         Producto::create([
@@ -120,7 +120,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Robot aspirador con mapeo inteligente y control mediante aplicación móvil para limpieza automática del hogar.',
             'cantidad' => '1',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '17'
         ]);
         
         Producto::create([
@@ -132,7 +132,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Dispositivo portátil para medir la saturación de oxígeno en la sangre y la frecuencia cardíaca.',
             'cantidad' => '2',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '17'
         ]);
         
         Producto::create([
@@ -144,7 +144,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Taladro eléctrico sin cable con función de percusión para perforaciones en diferentes materiales.',
             'cantidad' => '5',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '18'
         ]);
         
         Producto::create([
@@ -156,7 +156,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Proyector portátil con resolución Full HD, ideal para ver películas y hacer presentaciones profesionales.',
             'cantidad' => '2',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '18'
         ]);
         
         Producto::create([
@@ -168,7 +168,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Reloj inteligente con monitor de actividad física, monitor de sueño y pantalla AMOLED a color.',
             'cantidad' => '4',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '19'
         ]);
         
         Producto::create([
@@ -180,7 +180,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Cocina automática con múltiples funciones como batir, picar, cocinar al vapor y más.',
             'cantidad' => '3',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '19'
         ]);
         
         Producto::create([
@@ -192,7 +192,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Báscula electrónica precisa para pesar ingredientes con precisión en recetas de cocina.',
             'cantidad' => '2',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '14'
         ]);
         
         Producto::create([
@@ -204,7 +204,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Set de llaves ajustables de diferentes tamaños para reparaciones mecánicas y de fontanería.',
             'cantidad' => '10',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '14'
         ]);
         
         Producto::create([
@@ -216,7 +216,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Impresora láser que imprime, escanea y copia documentos de forma inalámbrica desde dispositivos móviles.',
             'cantidad' => '8',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '15'
         ]);
         
         Producto::create([
@@ -228,7 +228,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Altavoz portátil resistente al agua con sonido potente y conectividad Bluetooth.',
             'cantidad' => '3',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '15'
         ]);
         
         Producto::create([
@@ -240,7 +240,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Set de sartenes de cocina con revestimiento antiadherente y mangos ergonómicos.',
             'cantidad' => '1',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '16'
         ]);
         
         Producto::create([
@@ -252,7 +252,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Dispositivo digital para medir la presión arterial en casa de manera rápida y precisa.',
             'cantidad' => '2',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '16'
         ]);
         
         Producto::create([
@@ -264,7 +264,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Herramienta eléctrica para cortes precisos en madera, plástico y otros materiales.',
             'cantidad' => '5',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '17'
         ]);
         
         Producto::create([
@@ -276,7 +276,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Portátil ultradelgado y ligero con procesador Intel Core i7 y pantalla táctil de alta resolución.',
             'cantidad' => '2',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '17'
         ]);
         
         Producto::create([
@@ -288,7 +288,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Televisor inteligente con resolución 4K UHD, sistema operativo Tizen y compatibilidad con asistentes de voz.',
             'cantidad' => '6',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '18'
         ]);
         
         Producto::create([
@@ -300,7 +300,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Aspiradora robot con tecnología de mapeo y navegación inteligente para una limpieza eficiente.',
             'cantidad' => '4',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '18'
         ]);
         
         Producto::create([
@@ -312,7 +312,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Dispositivo compacto y portátil para medir la presión arterial de manera cómoda en la muñeca.',
             'cantidad' => '3',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '19'
         ]);
         
         Producto::create([
@@ -324,7 +324,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Conjunto completo de herramientas manuales para trabajos de carpintería y bricolaje en casa.',
             'cantidad' => '9',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '19'
         ]);
         
         Producto::create([
@@ -336,7 +336,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Sistema de audio para televisores con subwoofer inalámbrico, Bluetooth y sonido envolvente.',
             'cantidad' => '7',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '14'
         ]);
         
         Producto::create([
@@ -348,7 +348,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Reloj despertador con pantalla LED grande y función de alarma gradual para despertares suaves.',
             'cantidad' => '2',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '14'
         ]);
         
         Producto::create([
@@ -360,7 +360,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Licuadora con motor de 1000W y cuchillas de acero inoxidable para preparar batidos y jugos.',
             'cantidad' => '3',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '15'
         ]);
         
         Producto::create([
@@ -372,7 +372,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Termómetro infrarrojo sin contacto con pantalla LCD para medir la temperatura en la frente y el oído.',
             'cantidad' => '2',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '15'
         ]);
         
         Producto::create([
@@ -384,7 +384,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Conjunto de herramientas especializadas para desmontar y reparar teléfonos móviles y tabletas.',
             'cantidad' => '10',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '16'
         ]);
         
         Producto::create([
@@ -396,7 +396,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Sistema de audio para televisores con subwoofer inalámbrico, sonido envolvente y conexión Bluetooth.',
             'cantidad' => '8',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '16'
         ]);
         
         Producto::create([
@@ -408,7 +408,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Altavoz inteligente con asistente virtual Alexa, control por voz y reproducción de música en streaming.',
             'cantidad' => '3',
             'categoria_id' => '1',
-            'propietario_id' => '1'
+            'propietario_id' => '17'
         ]);
         
         Producto::create([
@@ -420,7 +420,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Juego completo de ollas y sartenes de cocina de acero inoxidable con tapas herméticas.',
             'cantidad' => '1',
             'categoria_id' => '2',
-            'propietario_id' => '2'
+            'propietario_id' => '17'
         ]);
         
         Producto::create([
@@ -432,7 +432,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Dispositivo automático para medir la presión arterial en el brazo con pantalla LCD y memoria de almacenamiento.',
             'cantidad' => '2',
             'categoria_id' => '3',
-            'propietario_id' => '3'
+            'propietario_id' => '18'
         ]);
         
         Producto::create([
@@ -444,7 +444,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Set de brocas de diferentes tamaños y tipos para perforar madera, metal, plástico y más.',
             'cantidad' => '5',
             'categoria_id' => '4',
-            'propietario_id' => '4'
+            'propietario_id' => '18'
         ]);
         
         Producto::create([
@@ -456,7 +456,7 @@ class ProductosSeeder extends Seeder
             'descripcion' => 'Tablet con pantalla de 11 pulgadas, S Pen incluido, procesador Snapdragon y 128 GB de almacenamiento.',
             'cantidad' => '2',
             'categoria_id' => '5',
-            'propietario_id' => '5'
+            'propietario_id' => '19'
         ]);
         Producto::create([
     'nombre' => 'Cámara de Seguridad CCTV',
@@ -467,7 +467,7 @@ class ProductosSeeder extends Seeder
     'descripcion' => 'Sistema de videovigilancia con cámaras HD y grabación continua para monitorear el hogar o negocio.',
     'cantidad' => '4',
     'categoria_id' => '1',
-    'propietario_id' => '1'
+    'propietario_id' => '14'
 ]);
 
 Producto::create([
@@ -479,7 +479,7 @@ Producto::create([
     'descripcion' => 'Batidora de mano con múltiples velocidades y accesorios para mezclar, batir y triturar ingredientes.',
     'cantidad' => '3',
     'categoria_id' => '2',
-    'propietario_id' => '2'
+    'propietario_id' => '14'
 ]);
 
 Producto::create([
@@ -503,7 +503,7 @@ Producto::create([
     'descripcion' => 'Juego de llaves de vaso métricas e imperiales con trinquete y adaptadores para diferentes tipos de tornillos.',
     'cantidad' => '8',
     'categoria_id' => '4',
-    'propietario_id' => '4'
+    'propietario_id' => '15'
 ]);
 
 Producto::create([
@@ -515,7 +515,7 @@ Producto::create([
     'descripcion' => 'Sistema de audio para cine en casa con sonido envolvente 5.1 canales, subwoofer inalámbrico y conexión HDMI ARC.',
     'cantidad' => '6',
     'categoria_id' => '5',
-    'propietario_id' => '5'
+    'propietario_id' => '15'
 ]);
 
 Producto::create([
@@ -527,7 +527,7 @@ Producto::create([
     'descripcion' => 'Auriculares inalámbricos con cancelación de ruido adaptativa, batería de larga duración y calidad de audio superior.',
     'cantidad' => '3',
     'categoria_id' => '1',
-    'propietario_id' => '1'
+    'propietario_id' => '16'
 ]);
 
 Producto::create([
@@ -539,7 +539,7 @@ Producto::create([
     'descripcion' => 'Robot de cocina multifunción con 6 programas automáticos y accesorios para cocinar una amplia variedad de platos.',
     'cantidad' => '1',
     'categoria_id' => '2',
-    'propietario_id' => '2'
+    'propietario_id' => '16'
 ]);
 
 Producto::create([
@@ -551,7 +551,7 @@ Producto::create([
     'descripcion' => 'Dispositivo portátil para medir la saturación de oxígeno en la sangre y el pulso desde la muñeca.',
     'cantidad' => '2',
     'categoria_id' => '3',
-    'propietario_id' => '3'
+    'propietario_id' => '17'
 ]);
 
 Producto::create([
@@ -563,7 +563,7 @@ Producto::create([
     'descripcion' => 'Taladro eléctrico con función de percusión para perforaciones en hormigón, ladrillo y otras superficies duras.',
     'cantidad' => '5',
     'categoria_id' => '4',
-    'propietario_id' => '4'
+    'propietario_id' => '17'
 ]);
 
 Producto::create([
@@ -575,7 +575,7 @@ Producto::create([
     'descripcion' => 'Televisor OLED de alta definición con pantalla de 65 pulgadas, inteligencia artificial y control por voz.',
     'cantidad' => '2',
     'categoria_id' => '5',
-    'propietario_id' => '5'
+    'propietario_id' => '18'
 ]);
 
 Producto::create([
@@ -587,7 +587,7 @@ Producto::create([
     'descripcion' => 'Báscula electrónica para medir el peso corporal con precisión y pantalla LCD de fácil lectura.',
     'cantidad' => '4',
     'categoria_id' => '1',
-    'propietario_id' => '1'
+    'propietario_id' => '18'
 ]);
 
 Producto::create([
@@ -599,7 +599,7 @@ Producto::create([
     'descripcion' => 'Dispositivo robótico para limpiar ventanas y superficies acristaladas de manera automática y eficiente.',
     'cantidad' => '3',
     'categoria_id' => '2',
-    'propietario_id' => '2'
+    'propietario_id' => '19'
 ]);
 
 Producto::create([
@@ -611,7 +611,7 @@ Producto::create([
     'descripcion' => 'Termómetro para alimentos con sonda de acero inoxidable y pantalla LCD para cocinar con precisión.',
     'cantidad' => '2',
     'categoria_id' => '3',
-    'propietario_id' => '3'
+    'propietario_id' => '19'
 ]);
 
 Producto::create([
@@ -623,7 +623,7 @@ Producto::create([
     'descripcion' => 'Juego de llaves Allen de diferentes tamaños para apretar y aflojar tornillos hexagonales.',
     'cantidad' => '8',
     'categoria_id' => '4',
-    'propietario_id' => '4'
+    'propietario_id' => '14'
 ]);
 
 Producto::create([
@@ -635,7 +635,7 @@ Producto::create([
     'descripcion' => 'Auriculares Bluetooth con cancelación de ruido, ecualizador ajustable y hasta 24 horas de autonomía.',
     'cantidad' => '6',
     'categoria_id' => '5',
-    'propietario_id' => '5'
+    'propietario_id' => '14'
 ]);
         
     }

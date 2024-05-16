@@ -11,7 +11,7 @@
                 @forelse ($productos as $producto)
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="{{ $producto->imagen }}" class="card-img-top" alt="{{ $producto->nombre }}" target="_blank">
+                        <img src="{{ asset('images/productos/' . $producto->imagen) }}" class="card-img-top" alt="{{ $producto->nombre }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $producto->nombre }}</h5>
                                 <a href="#" class="btn btn-primary">Ver detalles</a>
