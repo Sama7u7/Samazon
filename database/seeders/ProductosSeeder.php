@@ -13,7 +13,6 @@ class ProductosSeeder extends Seeder
         for ($i = 1; $i <= 30; $i++) {
             Producto::create([
                 'nombre' => "Producto Consignado " . $i,
-                'imagen' => '', 
                 'estado' => 'consignado',
                 'fecha_publicacion' => date('Y-m-d'), 
                 'motivo' => null, 
@@ -28,7 +27,6 @@ class ProductosSeeder extends Seeder
         for ($i = 1; $i <= 20; $i++) {
             Producto::create([
                 'nombre' => "Producto Propuesto " . $i,
-                'imagen' => '', 
                 'estado' => 'propuesto',
                 'fecha_publicacion' => date('Y-m-d'), 
                 'motivo' => null, 
@@ -41,7 +39,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Teléfono inteligente Samsung Galaxy S20',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -53,7 +50,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Cafetera Nespresso Vertuo Plus',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -65,7 +61,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Termómetro Digital Infrarrojo',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -77,7 +72,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Juego de Destornilladores de Precisión',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -89,7 +83,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Cámara de seguridad WiFi',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -101,7 +94,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Auriculares Inalámbricos Bluetooth',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -113,7 +105,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Aspiradora Robot Inteligente',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -125,7 +116,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Pulsioxímetro de Dedo',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -137,7 +127,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Taladro Inalámbrico',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -149,7 +138,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Proyector LED Full HD',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -161,7 +149,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Smartwatch Xiaomi Mi Band 6',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -173,7 +160,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Robot de Cocina Multifunción',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -185,7 +171,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Báscula Digital de Cocina',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -197,7 +182,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Juego de Llaves Inglesas',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -209,7 +193,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Impresora Multifunción Inalámbrica',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -221,7 +204,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Altavoz Bluetooth JBL Flip 5',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -233,7 +215,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Juego de Sartenes Antiadherentes',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -245,7 +226,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Medidor de Presión Arterial Automático',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -257,7 +237,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Sierra Circular Eléctrica',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -269,7 +248,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Laptop Lenovo ThinkPad X1 Carbon',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -281,7 +259,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Smart TV Samsung 55"',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -293,7 +270,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Robot Aspirador iRobot Roomba',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -305,7 +281,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Monitor de Presión Arterial de Muñeca',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -317,7 +292,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Kit de Herramientas para Carpintería',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -329,7 +303,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Barra de Sonido Sony 2.1',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -341,7 +314,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Reloj Despertador Digital LED',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -353,7 +325,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Licuadora de Alta Potencia',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -365,7 +336,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Termómetro Digital para Frente y Oído',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -377,7 +347,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Kit de Herramientas para Reparación de Teléfonos',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -389,7 +358,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Barra de Sonido LG con Subwoofer',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -401,7 +369,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Altavoz Inteligente Amazon Echo Dot',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -413,7 +380,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Set de Ollas y Sartenes de Acero Inoxidable',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -425,7 +391,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Tensiómetro de Brazo Digital',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -437,7 +402,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Juego de Brocas para Taladro',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -449,7 +413,6 @@ class ProductosSeeder extends Seeder
         
         Producto::create([
             'nombre' => 'Tablet Samsung Galaxy Tab S7',
-            'imagen' => '',
             'estado' => 'consignado',
             'fecha_publicacion' => '2024-05-06',
             'motivo' => '',
@@ -460,7 +423,6 @@ class ProductosSeeder extends Seeder
         ]);
         Producto::create([
     'nombre' => 'Cámara de Seguridad CCTV',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -472,7 +434,6 @@ class ProductosSeeder extends Seeder
 
 Producto::create([
     'nombre' => 'Batidora de Mano Eléctrica',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -484,7 +445,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Masajeador de Espalda y Cuello',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -496,7 +456,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Set de Llaves de Vaso',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -508,7 +467,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Barra de Sonido Sony 5.1',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -520,7 +478,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Auriculares con Cancelación de Ruido Sony WH-1000XM4',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -532,7 +489,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Robot de Cocina Moulinex Cuisine Companion',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -544,7 +500,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Pulsioxímetro de Muñeca',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -556,7 +511,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Taladro Percutor de Impacto',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -568,7 +522,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Smart TV LG OLED 65"',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -580,7 +533,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Balanza Digital para Baño',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -592,7 +544,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Robot Limpiacristales Automático',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -604,7 +555,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Termómetro de Cocina Digital',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -616,7 +566,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Set de Llaves Allen',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',
@@ -628,7 +577,6 @@ Producto::create([
 
 Producto::create([
     'nombre' => 'Auriculares Inalámbricos Bose QuietComfort 45',
-    'imagen' => '',
     'estado' => 'consignado',
     'fecha_publicacion' => '2024-05-06',
     'motivo' => '',

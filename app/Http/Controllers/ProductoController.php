@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pregunta;
+use App\Models\Imagen;
+use Illuminate\Support\Facades\File;
 
 class ProductoController extends Controller
 {
@@ -204,15 +206,19 @@ public function Vendedoredit($id)
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
 
-        // Manejar la subida de la imagen
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
             $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension(); // Generar un nombre único para la imagen
             $rutaImagen = public_path('images/productos/' . $nombreImagen); // Ruta donde se almacenará la imagen
+            
             // Guardar la imagen en la carpeta de imágenes de productos
             $imagen->move(public_path('images/productos'), $nombreImagen);
-            // Actualizar el campo de la imagen en la base de datos con el nombre de la nueva imagen
-            $producto->imagen = $nombreImagen;
+            
+            // Crear un nuevo registro en la tabla de imágenes
+            $nuevaImagen = new Imagen();
+            $nuevaImagen->nombre = $nombreImagen;
+            $nuevaImagen->producto_id = $producto->id; // Asociar la imagen con el producto
+            $nuevaImagen->save();
         }
 
         // Guardar los cambios en la base de datos
@@ -233,6 +239,27 @@ public function Vendedoredit($id)
         // Redirige a la página de inicio del vendedor o a cualquier otra ruta deseada
         return redirect()->route('vendedor')->with('success', 'Producto eliminado correctamente.');
     }
+
+
+    public function eliminarImagen(Imagen $imagen)
+{
+    // Obtener la ruta completa del archivo de imagen
+    $rutaImagen = public_path('images/productos/' . $imagen->nombre);
+
+    // Verificar si el archivo de imagen existe
+    if (File::exists($rutaImagen)) {
+        // Eliminar el archivo de imagen del sistema de archivos
+        File::delete($rutaImagen);
+    }
+
+    // Eliminar la entrada de la base de datos
+    $imagen->delete();
+    
+    
+    // Redireccionar de vuelta con un mensaje de éxito
+    return back()->with('success', 'La imagen se ha eliminado correctamente.');
+}
+
 
 
 

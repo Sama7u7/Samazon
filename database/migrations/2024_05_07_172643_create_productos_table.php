@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->binary('imagen');
             $table->enum('estado',['propuesto','consignado'])->default('propuesto');
             $table->date('fecha_publicacion');
             $table->string('motivo')->nullable()->default(null);

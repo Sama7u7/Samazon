@@ -58,6 +58,7 @@ Route::middleware(['auth', 'role:vendedor'])->group(function () {
     
     Route::get('/vendedor', [ProductoController::class, 'productosVendedor'])->name('vendedor');
     Route::delete('vendedor/productos/{id}', [ProductoController::class, 'vendedordestroy'])->name('productos.destroy');
+    Route::delete('/productos/{imagen}', [ProductoController::class, 'eliminarImagen'])->name('eliminar-imagen');
     // Ruta para mostrar las preguntas y permitir responder
     Route::get('/vendedor/preguntas', [VendedorController::class, 'preguntasVendedor'])->name('preguntas-vendedor');
     Route::post('vendedor/guardar-respuesta/{preguntaId}', [VendedorController::class,'guardarRespuesta'])->name('guardar-respuesta');
