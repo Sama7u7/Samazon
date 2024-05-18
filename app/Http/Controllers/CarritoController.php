@@ -5,61 +5,93 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Carrito;
+use App\Models\CartItem;
+use Illuminate\Support\Facades\Auth;
 
 class CarritoController extends Controller
-{
-    public function agregar(Request $request, $id)
+{   public function __construct()
     {
-        $producto = Producto::findOrFail($id);
-        $carrito = session()->get('carrito', []);
-
-        $imagenNombre = null;
-        if ($producto->imagenes->isNotEmpty()) {
-            $imagenNombre = $producto->imagenes->first()->nombre;
-        }
-
-        if (isset($carrito[$id])) {
-            if ($carrito[$id]['cantidad'] < $producto->cantidad) {
-                $carrito[$id]['cantidad']++;
-            } else {
-                return redirect()->route('cliente')->with('error', 'No puedes añadir más de la cantidad disponible.');
-            }
-        } else {
-            $carrito[$id] = [
-                "nombre" => $producto->nombre,
-                "cantidad" => 1,
-                "precio" => $producto->precio,
-                "imagen" => $imagenNombre,
-                "existencias" => $producto->cantidad,
-            ];
-        }
-
-        session()->put('carrito', $carrito);
-        return redirect()->route('cliente')->with('success', 'Producto añadido al carrito');
+        $this->middleware('auth');
     }
+
+    public function agregar(Request $request, $productoId)
+{
+    $user = Auth::user();
+    $producto = Producto::findOrFail($productoId);
+
+    // Busca o crea un carrito para el usuario
+    $carrito = Carrito::firstOrCreate(['user_id' => $user->id]);
+
+    // Busca el item en el carrito o crea uno nuevo
+    $cartItem = $carrito->productos()->where('producto_id', $productoId)->first();
+
+    if ($cartItem) {
+        if ($cartItem->pivot->cantidad < $producto->cantidad) {
+            $cartItem->pivot->increment('cantidad');
+        } else {
+            return redirect()->route('cliente')->with('error', 'No puedes añadir más de la cantidad disponible.');
+        }
+    } else {
+        $carrito->productos()->attach($productoId, ['cantidad' => 1]);
+    }
+
+    return redirect()->route('cliente')->with('success', 'Producto añadido al carrito');
+}
 
     public function eliminar($id)
     {
-        $carrito = session()->get('carrito', []);
-        if (isset($carrito[$id])) {
-            unset($carrito[$id]);
-            session()->put('carrito', $carrito);
-        }
+        $user = Auth::user();
+        $carrito = Carrito::where('user_id', $user->id)->firstOrFail();
+        $carrito->productos()->detach($id);
+
         return redirect()->route('carrito.mostrar')->with('success', 'Producto eliminado del carrito');
     }
 
+    public function actualizar(Request $request, $id)
+    {
+        $user = Auth::user();
+        $carrito = Carrito::where('user_id', $user->id)->firstOrFail();
+        $cartItem = $carrito->productos()->where('producto_id', $id)->firstOrFail();
 
-    public function verCarrito()
-{
-    $carrito = session()->get('carrito', []);
-    $total = 0;
+        $cantidadNueva = $request->input('cantidad');
+        $producto = Producto::findOrFail($cartItem->id);
 
-    foreach ($carrito as $id => $detalles) {
-        $total += $detalles['precio'] * $detalles['cantidad'];
+        if ($cantidadNueva > $producto->cantidad) {
+            return redirect()->route('carrito.mostrar')->with('error', 'No puedes añadir más de la cantidad disponible.');
+        }
+
+        $cartItem->pivot->cantidad = $cantidadNueva;
+        $cartItem->pivot->save();
+
+        return redirect()->route('carrito.mostrar')->with('success', 'Cantidad actualizada');
     }
 
-    return view('cliente.carrito', compact('carrito', 'total'));
-}
+    public function mostrar()
+    {
+        $user = Auth::user();
+        $carrito = Carrito::where('user_id', $user->id)->with('productos')->first();
+        $total = 0;
 
-   
+        if ($carrito) {
+            $total = $carrito->productos->sum(function ($item) {
+                return $item->precio * $item->pivot->cantidad;
+            });
+        }
+
+        return view('cliente.carrito', ['carrito' => $carrito, 'total' => $total]);
+    }
+
+    public function checkout()
+    {
+        $user = Auth::user();
+        $carrito = Carrito::where('user_id', $user->id)->first();
+
+        if ($carrito) {
+            $carrito->productos()->detach();
+            $carrito->delete();
+        }
+
+        return redirect()->route('cliente')->with('success', 'Compra realizada con éxito');
+    }
 }

@@ -10,7 +10,7 @@
                     <a class="nav-link" href="{{ route('categorias.index2') }}">Categorías</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('carrito.ver') }}">Carrito</a>
+                    <a class="nav-link" href="{{ route('carrito.mostrar') }}">Carrito</a>
                 </li>
                 
             </ul>

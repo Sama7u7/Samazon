@@ -8,12 +8,10 @@ class CreateCarritoProductoTable extends Migration
 {
     public function up()
     {
-        Schema::create('carrito_producto', function (Blueprint $table) {
+        Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('carrito_id');
-            $table->foreign('carrito_id')->references('id')->on('carritos')->onDelete('cascade');
-            $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreignId('carrito_id')->constrained('carts')->onDelete('cascade');
+            $table->foreignId('producto_id')->constrained()->onDelete('cascade');
             $table->integer('cantidad');
             $table->timestamps();
         });

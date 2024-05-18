@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Carrito extends Model
+class Transaction extends Model
 {
     use HasFactory;
 
-    protected $table = 'Carts'; // Especifica la tabla correcta
-    protected $fillable = ['user_id'];
+    protected $fillable = ['user_id', 'voucher'];
 
     public function productos()
     {
-        return $this->belongsToMany(Producto::class, 'cart_items')
+        return $this->belongsToMany(Producto::class, 'transaction_producto')
                     ->withPivot('cantidad')
                     ->withTimestamps();
     }

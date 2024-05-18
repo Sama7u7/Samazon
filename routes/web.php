@@ -10,6 +10,7 @@ use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\RespuestaController;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,13 +84,16 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
     Route::post('/productos/{productId}/preguntas', [PreguntaController::class, 'store'])->name('preguntas.store');
     Route::get('cliente/productos/{id}', [ProductoController::class, 'test'])->name('productos.test');
 
-   Route::prefix('carrito')->group(function () {
-    Route::post('agregar/{productoId}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
-    Route::delete('eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
-    Route::get('/', [CarritoController::class, 'verCarrito'])->name('carrito.ver');
-    
-
-});
+    Route::prefix('carrito')->middleware('auth')->group(function () {
+        Route::post('agregar/{productoId}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+        Route::delete('eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+        Route::put('actualizar/{id}', [CarritoController::class, 'actualizar'])->name('carrito.actualizar');
+        Route::get('/', [CarritoController::class, 'mostrar'])->name('carrito.mostrar');
+        Route::post('checkout', [CarritoController::class, 'checkout'])->name('carrito.checkout');
+    });
+    Route::post('transaccion', [TransactionController::class, 'crearTransaccion'])->name('transaccion.crear');
+    Route::get('transaccion/formulario', [TransactionController::class, 'verFormulario'])->name('transaccion.verFormulario');
+    Route::get('transacciones', [TransactionController::class, 'verTransacciones'])->name('transacciones.ver');
 
 });
 
