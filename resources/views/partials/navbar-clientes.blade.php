@@ -14,6 +14,9 @@
         <div> 
             <ul class="navbar-nav mr-auto"> <!-- Movido a la izquierda -->
                 <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('carrito.mostrar') }}">Carrito</a>
+                </li>
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ session('email') }}
                     </a>

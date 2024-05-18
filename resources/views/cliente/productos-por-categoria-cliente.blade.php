@@ -6,6 +6,14 @@
 
     <div class="container">
         <div class="container">
+        <br>
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{route('cliente')}}">Principal</a></li>
+    <li class="breadcrumb-item"><a href="{{route('categorias.index2')}}">Categorias</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Productos</li>
+  </ol>
+</nav>
             <h1>Productos de la categoría: {{ $categoria->nombre }}</h1>
             <div class="row">
                 @forelse ($productos as $producto)
@@ -29,8 +37,15 @@
                 </a>
             </div>
                             <div class="card-body">
-                                <h5 class="card-title">{{ $producto->nombre }}</h5>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
+                            <h5 class="card-title">{{ $producto->nombre }}</h5>
+                            <p class="card-text">{{ $producto->descripcion }}</p>
+                            <p class="card-text">Existencias: {{ $producto->cantidad }}</p>
+                            <p class="card-text">${{ $producto->precio }}</p>
+                                <a href="{{ route('productos.test', ['id' => $producto->id]) }}" class="btn btn-primary">Ver detalles</a>
+                                <form action="{{ route('carrito.agregar', ['productoId' => $producto->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-success">Añadir al carrito</button>
+                    </form>
                             </div>
                         </div>
                     </div>

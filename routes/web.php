@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\RespuestaController;
 use App\Http\Controllers\VendedorController;
+use App\Http\Controllers\CarritoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +80,15 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
     Route::get('/cliente', [UsuarioController::class, 'combinar'])->name('cliente');
     Route::get('/cliente/categorias', [CategoriaController::class, 'index2'])->name('categorias.index2');
     Route::get('/productos/cliente/{categoria}', [ProductoController::class, 'productosPorCategoria'])->name('productosPorCategoria');
-    Route::post('/preguntas', [PreguntaController::class, 'store'])->name('preguntas.store');
+    Route::post('/productos/{productId}/preguntas', [PreguntaController::class, 'store'])->name('preguntas.store');
+    Route::get('cliente/productos/{id}', [ProductoController::class, 'test'])->name('productos.test');
+
+   Route::prefix('carrito')->group(function () {
+    Route::post('agregar/{productoId}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+    Route::delete('eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+    Route::get('/', [CarritoController::class, 'mostrar'])->name('carrito.mostrar');
+});
+
 });
 
 //rutas para no usuarios

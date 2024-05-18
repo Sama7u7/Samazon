@@ -60,7 +60,10 @@
                 <p class="card-text">{{ $producto->motivo }}</p>
                 <center>
                 <!-- Agrega más detalles del producto según sea necesario -->
-                <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-primary"> Ver o editar detalles del producto</a>
+                @if($producto->estado == 'propuesto')
+                    <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-primary"> Ver o editar detalles del producto</a>
+                @endif
+
                 <br>
                 <br>
                 <!-- Botón para eliminar el producto -->

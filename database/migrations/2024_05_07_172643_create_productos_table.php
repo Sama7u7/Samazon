@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('motivo')->nullable()->default(null);
             $table->text('descripcion');
             $table->integer('cantidad');
+            $table->integer('precio');
             $table->bigInteger('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->bigInteger('propietario_id')->unsigned();

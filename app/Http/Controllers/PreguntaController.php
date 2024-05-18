@@ -13,20 +13,32 @@ class PreguntaController extends Controller
 {
     // Validar los datos recibidos del formulario
     $request->validate([
-        'content' => 'required|string|max:255',
+        'pregunta' => 'required|string|max:255',
         'product_id' => 'required|exists:productos,id',
     ]);
 
     // Crear una nueva pregunta
     $pregunta = new Pregunta();
-    $pregunta->content = $request->content;
-    $pregunta->type = 'pregunta';
+    $pregunta->pregunta = $request->pregunta;
+    $pregunta->respuesta = null;
     $pregunta->product_id = $request->product_id;
     // Aquí deberías asignar también el ID del usuario autenticado si es necesario
     $pregunta->user_id = auth()->id();
     $pregunta->save();
 
     return back()->with('success', 'La pregunta se ha enviado correctamente.');
+}
+
+public function guardarRespuesta(Request $request, Pregunta $pregunta)
+{
+    $request->validate([
+        'respuesta' => 'required|string|max:255',
+    ]);
+
+    $pregunta->respuesta = $request->respuesta;
+    $pregunta->save();
+
+    return back()->with('success', 'Respuesta guardada correctamente.');
 }
 
 }

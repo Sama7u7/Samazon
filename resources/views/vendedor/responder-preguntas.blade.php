@@ -10,9 +10,9 @@
     <ul>
         @foreach ($preguntas as $pregunta)
             <li>
-                <p><strong>Producto:</strong> {{ $pregunta->product->nombre }}</p>
-                <p><strong>Pregunta:</strong> {{ $pregunta->content }}</p>
-                <p><strong>Pregunta:</strong> {{ $pregunta->id }}</p>
+                <p><strong>Producto:</strong> {{ $pregunta->producto->nombre }}</p>
+                <p><strong>Pregunta:</strong> {{ $pregunta->pregunta }}</p>
+                <p><strong>Usuario que preguntó:</strong> {{ $pregunta->usuario->nombre }}</p>
                 @if ($pregunta->respuesta)
                     <p><strong>Respuesta:</strong> {{ $pregunta->respuesta }}</p>
                 @else
@@ -33,13 +33,15 @@
     </ul>
     
 @endif
-
+<br> 
     </div>
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
 @endif
+ <!-- Espacio adicional -->
+ <div style="height: 500px;"></div>
 @endsection
 
 

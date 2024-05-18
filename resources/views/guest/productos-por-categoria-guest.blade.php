@@ -33,6 +33,7 @@
                                 <h5 class="card-title">{{ $producto->nombre }}</h5>
                                 <p class="card-text">{{ $producto->descripcion }}</p>
                                 <a href="{{ route('productos.test', ['id' => $producto->id]) }}" class="btn btn-primary">Ver detalles</a>
+                                <a href="/login" class="btn btn-success">Anadir al carrito</a>
                             </div>
                         </div>
                     </div>

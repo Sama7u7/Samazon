@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
-            $table->string('content'); // Contenido de la pregunta o respuesta
-            $table->enum('type', ['pregunta', 'respuesta']); // Tipo: pregunta o respuesta
+            $table->string('pregunta'); // Contenido de la pregunta o respuesta
+            $table->string('respuesta')->nullable();  // Contenido de la pregunta o respuesta
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('productos');
             $table->unsignedBigInteger('user_id');
