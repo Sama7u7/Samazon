@@ -79,7 +79,27 @@
                     <ul>
                         @foreach($productos as $producto)
                             <li>
-                                <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
+                            @if($producto->imagenes->isNotEmpty())
+                <div id="carousel{{ $producto->id }}" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($producto->imagenes as $key => $imagen)
+                        <div class="carousel-item{{ $key == 0 ? ' active' : '' }}">
+                            <img src="{{ asset('images/productos/' . $imagen->nombre) }}" class="d-block mx-auto img-fluid" alt="{{ $producto->nombre }}" style="max-width: 200px; margin: 0 auto;">
+                        </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel{{ $producto->id }}" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel{{ $producto->id }}" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                @else
+                <p>No hay imágenes disponibles para este producto.</p>
+                @endif
                                 <h5>{{ $producto->nombre }}</h5>
                                 <p>{{ $producto->descripcion }}</p>
                                 <!-- Botón para ver más detalles -->
