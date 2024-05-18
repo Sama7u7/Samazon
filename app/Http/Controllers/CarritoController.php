@@ -1,4 +1,6 @@
 <?php
+// CarritoController.php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,54 +12,54 @@ class CarritoController extends Controller
     {
         $producto = Producto::findOrFail($id);
         $carrito = session()->get('carrito', []);
-    
-        // Verificar si la cantidad que se intenta agregar excede la cantidad disponible
-        $cantidadAAgregar = isset($carrito[$id]) ? $carrito[$id]['cantidad'] + 1 : 1;
-        if ($cantidadAAgregar > $producto->cantidad) {
-            return redirect()->route('cliente')->with('error', 'No hay suficientes existencias del producto "'.$producto->nombre.'" para agregarlo al carrito.');
+
+        $imagenNombre = null;
+        if ($producto->imagenes->isNotEmpty()) {
+            $imagenNombre = $producto->imagenes->first()->nombre;
         }
-    
-        // Agregar el producto al carrito
+
         if (isset($carrito[$id])) {
-            $carrito[$id]['cantidad']++;
+            if ($carrito[$id]['cantidad'] < $producto->cantidad) {
+                $carrito[$id]['cantidad']++;
+            } else {
+                return redirect()->route('cliente')->with('error', 'No puedes añadir más de la cantidad disponible.');
+            }
         } else {
-            $imagenNombre = $producto->imagenes->isNotEmpty() ? $producto->imagenes->first()->nombre : null;
             $carrito[$id] = [
                 "nombre" => $producto->nombre,
                 "cantidad" => 1,
                 "precio" => $producto->precio,
                 "imagen" => $imagenNombre,
+                "existencias" => $producto->cantidad,
             ];
         }
-    
+
         session()->put('carrito', $carrito);
-        return redirect()->route('cliente')->with('success', 'Producto "'.$producto->nombre.'" añadido al carrito.');
+        return redirect()->route('cliente')->with('success', 'Producto añadido al carrito');
     }
-    
 
-    
-    
-    
-
-    public function eliminar(Request $request, $id)
+    public function eliminar($id)
     {
-        $carrito = session()->get('carrito');
-
-        if(isset($carrito[$id])) {
+        $carrito = session()->get('carrito', []);
+        if (isset($carrito[$id])) {
             unset($carrito[$id]);
             session()->put('carrito', $carrito);
         }
-
         return redirect()->route('carrito.mostrar')->with('success', 'Producto eliminado del carrito');
     }
 
-    public function mostrar()
-    {
-        $carrito = session()->get('carrito');
-        return view('cliente.carrito', compact('carrito'));
+
+    public function verCarrito()
+{
+    $carrito = session()->get('carrito', []);
+    $total = 0;
+
+    foreach ($carrito as $id => $detalles) {
+        $total += $detalles['precio'] * $detalles['cantidad'];
     }
+
+    return view('cliente.carrito', compact('carrito', 'total'));
 }
 
-
-
    
+}

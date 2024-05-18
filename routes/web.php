@@ -86,7 +86,9 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
    Route::prefix('carrito')->group(function () {
     Route::post('agregar/{productoId}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
     Route::delete('eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
-    Route::get('/', [CarritoController::class, 'mostrar'])->name('carrito.mostrar');
+    Route::get('/', [CarritoController::class, 'verCarrito'])->name('carrito.ver');
+    
+
 });
 
 });

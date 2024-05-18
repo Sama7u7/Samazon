@@ -24,6 +24,7 @@ class ClienteSeeder extends Seeder
             'role' => 'cliente',
         ]);
         Usuario::create([
+            'nombre' => 'Emiliano',
             'email' => 'cliente2@gmail.com',
             'password' => bcrypt('client2e@gmail.com'),
             'role' => 'cliente',
