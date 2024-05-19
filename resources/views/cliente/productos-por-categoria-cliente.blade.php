@@ -6,14 +6,14 @@
 
     <div class="container">
         <div class="container">
-        <br>
-    <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{route('cliente')}}">Principal</a></li>
-    <li class="breadcrumb-item"><a href="{{route('categorias.index2')}}">Categorias</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Productos</li>
-  </ol>
-</nav>
+            <br>
+            <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('cliente')}}">Principal</a></li>
+            <li class="breadcrumb-item"><a href="{{route('categorias.index2')}}">Categorias</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Productos</li>
+          </ol>
+        </nav>
             <h1>Productos de la categoría: {{ $categoria->nombre }}</h1>
             <div class="row">
                 @forelse ($productos as $producto)

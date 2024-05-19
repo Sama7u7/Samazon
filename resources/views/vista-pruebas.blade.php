@@ -2,8 +2,19 @@
 
 @section('content')
 <div class="container-fluid">
+    
     <div class="row justify-content-center mt-4">
+        
         <div class="col-md-8">
+            <br>
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{route('cliente')}}">Principal</a></li>
+    <li class="breadcrumb-item"><a href="{{route('categorias.index2')}}">Categorias</a></li>
+    <li class="breadcrumb-item">Productos</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ $producto->nombre }}</li>
+  </ol>
+</nav>
             <div class="card">
                 <div class="card-header">{{ $producto->nombre }}</div>
                 <div id="carousel{{ $producto->id }}" class="carousel slide" data-ride="carousel">

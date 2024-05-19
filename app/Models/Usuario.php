@@ -21,5 +21,8 @@ class Usuario extends Model implements AuthenticatableContract
 {
     return $this->hasMany(Producto::class, 'propietario_id');
 }
+public function productosVendidos()
+    {
+        return $this->hasMany(Producto::class, 'propietario_id');
+    }
 }
-

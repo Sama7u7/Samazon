@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Producto;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pregunta;
+use App\Models\Transaction;
 use App\Models\Respuesta;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
@@ -41,5 +43,18 @@ class VendedorController extends Controller
 
     return back()->with('success', 'La respuesta se ha enviado correctamente.');
 }
+public function verProductosVendidos()
+{
+    $user = Auth::user();
+
+    // Obtener transacciones donde el usuario es el propietario del producto
+    $transacciones = Transaction::whereHas('productos', function ($query) use ($user) {
+        $query->where('productos.propietario_id', $user->id); // Calificar con el nombre de la tabla 'productos'
+    })->get();
+
+    return view('vendedor.productos-vendidos', compact('transacciones'));
+}
+
+
 
 }

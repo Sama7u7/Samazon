@@ -35,4 +35,9 @@ class Producto extends Model
                     ->withPivot('cantidad')
                     ->withTimestamps();
     }
+
+    public function transacciones()
+    {
+        return $this->belongsToMany(Transaction::class)->withPivot('cantidad');
+    }
 }

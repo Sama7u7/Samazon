@@ -22,4 +22,3 @@ class CreateCarritoProductoTable extends Migration
         Schema::dropIfExists('carrito_producto');
     }
 }
-

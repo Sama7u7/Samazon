@@ -10,11 +10,16 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->integer('monto');
+            $table->enum('estado_transaccion', ['en-proceso', 'validada', 'en-envio', 'entregado'])->default('en-proceso');
+            $table->enum('estado_pago', ['pendiente', 'pagado'])->default('pendiente');
+            $table->integer('calificacion')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->string('voucher')->nullable();
             $table->timestamps();
-
+            
             $table->foreign('user_id')->references('id')->on('usuarios')->onDelete('cascade');
+           
         });
 
         Schema::create('transaction_producto', function (Blueprint $table) {

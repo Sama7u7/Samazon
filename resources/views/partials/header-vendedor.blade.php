@@ -22,7 +22,8 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Ventas</a>
+          <a class="nav-link" href="{{ route('vendedor.productos-vendidos') }}">Ventas</a>
+          
         </li>
        
         <li class="nav-item">

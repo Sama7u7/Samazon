@@ -12,6 +12,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('carrito.mostrar') }}">Carrito</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('compras') }}">Mis compras</a>
+                </li>
                 
             </ul>
         </div>

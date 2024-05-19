@@ -68,6 +68,7 @@ Route::middleware(['auth', 'role:vendedor'])->group(function () {
     Route::put('vendedor/productos/{producto}', [ProductoController::class, 'Vendedorupdate'])->name('productos.update');
     Route::get('vendedor/producto/nuevo', [ProductoController::class, 'createProduct'])->name('vendedor.producto');
     Route::post('vendedor/producto/crear', [ProductoController::class, 'storeProduct'])->name('vendedor.store.product');
+    Route::get('/vendedor/productos-vendidos', [VendedorController::class, 'verProductosVendidos'])->name('vendedor.productos-vendidos');
 
 });
 
@@ -94,6 +95,13 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
     Route::post('transaccion', [TransactionController::class, 'crearTransaccion'])->name('transaccion.crear');
     Route::get('transaccion/formulario', [TransactionController::class, 'verFormulario'])->name('transaccion.verFormulario');
     Route::get('transacciones', [TransactionController::class, 'verTransacciones'])->name('transacciones.ver');
+
+
+    Route::middleware(['auth', 'role:cliente'])->group(function () {
+        Route::get('/compras', [TransactionController::class, 'verCompras'])->name('compras');
+        Route::get('/transaccion/{id}', [TransactionController::class, 'detallesTransaccion'])->name('transaccion.detalles');
+        Route::post('/transacciones/{id}/calificar', [TransactionController::class, 'calificar'])->name('transacciones.calificar');
+    });
 
 });
 
