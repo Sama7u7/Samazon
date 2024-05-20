@@ -14,7 +14,6 @@ class Transaction extends Model
         'voucher',
         'monto', // Nuevo campo
         'estado_transaccion', // Nuevo campo
-        'estado_pago',
          'calificacion' // Nuevo campo
     ];
 
@@ -22,7 +21,7 @@ class Transaction extends Model
     public function productos()
     {
         return $this->belongsToMany(Producto::class, 'transaction_producto')
-                    ->withPivot('cantidad')
+                    ->withPivot('cantidad', 'propietario_id', 'estado_pago')
                     ->withTimestamps();
     }
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\RespuestaController;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ContadorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,17 @@ Route::middleware(['auth', 'role:vendedor'])->group(function () {
 Route::middleware(['auth', 'role:contador'])->group(function () {
     
     Route::view('/contador', 'contador.inicio-contador')->name('contador');
+    Route::get('/contador/productos-vendidos', [ContadorController::class, 'verProductosVendidos'])->name('contador.productos-vendidos');
+    Route::post('/contador/realizar-pago', [ContadorController::class, 'realizarPago'])->name('contador.realizarPago');
+    Route::get('/contador/historial-pagos', [ContadorController::class, 'historialPagos'])->name('historial-pagos');
+
+    Route::get('/contador/ver-transacciones', [ContadorController::class, 'verTransacciones'])->name('contador.ver-transacciones');
+    Route::post('/contador/validar-transaccion/{id}', [ContadorController::class, 'validarTransaccion'])->name('contador.validar-transaccion');
+    Route::post('/contador/rechazar-transaccion/{id}', [ContadorController::class, 'rechazarTransaccion'])->name('contador.rechazar-transaccion');
+    Route::post('/contador/en-envio-transaccion/{id}', [ContadorController::class, 'enenvioTransaccion'])->name('contador.en-envio-transaccion');
+    Route::post('/contador/enviado-transaccion/{id}', [ContadorController::class, 'enviadoTransaccion'])->name('contador.enviado-transaccion');
+
+
 });
 
 Route::middleware(['auth', 'role:cliente'])->group(function () {

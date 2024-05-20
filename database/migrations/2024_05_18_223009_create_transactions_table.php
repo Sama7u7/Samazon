@@ -11,7 +11,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('monto');
-            $table->enum('estado_transaccion', ['en-proceso', 'validada', 'en-envio', 'entregado'])->default('en-proceso');
+            $table->enum('estado_transaccion', ['en-proceso', 'validada','rechazada',  'en-envio', 'entregado'])->default('en-proceso');
             $table->enum('estado_pago', ['pendiente', 'pagado'])->default('pendiente');
             $table->integer('calificacion')->nullable();
             $table->unsignedBigInteger('user_id');

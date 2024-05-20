@@ -38,6 +38,8 @@ class Producto extends Model
 
     public function transacciones()
     {
-        return $this->belongsToMany(Transaction::class)->withPivot('cantidad');
+        return $this->belongsToMany(Transaction::class, 'transaction_producto')
+                    ->withPivot('cantidad', 'propietario_id', 'estado_pago')
+                    ->withTimestamps();
     }
 }

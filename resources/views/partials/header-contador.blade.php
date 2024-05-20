@@ -18,14 +18,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('contador') }}">Inicio</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Validaciones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Transacciones</a>
+          <a class="nav-link" href="{{ route('contador.productos-vendidos') }}">Pagos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('historial-pagos') }}">Historial</a>
         </li>
        
-        
+       
       </ul>
       <ul class="navbar-nav mr-auto"> <!-- Movido a la izquierda -->
       <li class="nav-item">
