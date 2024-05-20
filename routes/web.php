@@ -50,7 +50,7 @@ Route::middleware(['auth', 'role:encargado'])->group(function () {
     Route::get('/productos/encargado/{categoria}', [ProductoController::class, 'productosPorCategoriaencargado'])->name('productosPorCategoriaencargado');
     Route::get('/productos/{id}/edit', [ProductoController::class, 'editestado'])->name('productos.form');
     Route::get('/productos/no_consignados', [ProductoController::class, 'productosEncargado'])->name('productos.list');
-    Route::put('/productos/{id}', [ProductoController::class, 'updateeEstado'])->name('productos.edit');
+    Route::put('/productos/{id}', [ProductoController::class, 'updateeEstado'])->name('encargado.productos.edit');
     Route::get('/encargado/usuarios-rol', [UsuarioController::class, 'indexroles'])->name('encargado.index');
     Route::get('/encargado/usuarios/{usuario}/edit', [UsuarioController::class, 'resetPassword'])->name('encargado.edit');
     Route::put('/encargado/usuarios/{usuario}', [UsuarioController::class, 'newpass'])->name('encargado.newppass');

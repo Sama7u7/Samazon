@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mt-4">
     <h1>Editar Producto</h1>
-    <form action="{{ route('productos.edit', $producto->id) }}" method="POST">
+    <form action="{{ route('encargado.productos.edit', $producto->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
