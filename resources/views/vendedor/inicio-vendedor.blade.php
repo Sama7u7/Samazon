@@ -66,33 +66,12 @@
 
                 <br>
                 <br>
-                <!-- Botón para eliminar el producto -->
-                <button class="btn btn-danger" data-toggle="modal" data-target="#eliminarProductoModal{{ $producto->id }}">Eliminar producto</button>
-</center>
-                <!-- Modal de confirmación de eliminación -->
-                <div class="modal fade" id="eliminarProductoModal{{ $producto->id }}" tabindex="-1" role="dialog" aria-labelledby="eliminarProductoModalLabel{{ $producto->id }}" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarProductoModalLabel{{ $producto->id }}">Eliminar producto</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ¿Estás seguro que deseas eliminar este producto?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <form action="{{ route('productos.destroy', $producto->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <form id="eliminarProductoForm{{ $producto->id }}" action="{{ route('productos.destroy', $producto->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                 <button type="submit" class="btn btn-danger">Eliminar producto</button>
+                </form>
+
             </div>
         </div>
     </div>

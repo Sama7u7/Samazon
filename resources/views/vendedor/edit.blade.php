@@ -37,37 +37,18 @@
 <div class="form-group">
     <label>Imágenes existentes</label>
     <div class="row">
-        @foreach ($producto->imagenes as $imagen)
-        <div class="col-md-3">
-            <img src="{{ asset('images/productos/' . $imagen->nombre) }}" class="img-thumbnail" alt="Imagen Producto">
-            <button type="button" class="btn btn-danger btn-sm mt-1" data-toggle="modal" data-target="#eliminarImagenModal{{ $imagen->id }}">Eliminar</button>
-        </div>
-        <!-- Modal de confirmación para eliminar la imagen -->
-        <div class="modal fade" id="eliminarImagenModal{{ $imagen->id }}" tabindex="-1" role="dialog" aria-labelledby="eliminarImagenModalLabel{{ $imagen->id }}" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="eliminarImagenModalLabel{{ $imagen->id }}">Confirmar Eliminación</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ¿Estás seguro de que deseas eliminar esta imagen?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <!-- Formulario para enviar la solicitud de eliminación -->
-                        <form action="{{ route('eliminar-imagen', $imagen->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
+    @foreach ($producto->imagenes as $imagen)
+    <div class="col-md-3">
+        <img src="{{ asset('images/productos/' . $imagen->nombre) }}" class="img-thumbnail" alt="Imagen Producto">
+        <!-- Botón para eliminar la imagen -->
+        <form action="{{ route('eliminar-imagen', $imagen->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger btn-sm mt-1">Eliminar</button>
+        </form>
+    </div>
+@endforeach
+
     </div>
 </div>
 <br>

@@ -252,11 +252,9 @@ public function Vendedoredit($id)
         // Eliminar el archivo de imagen del sistema de archivos
         File::delete($rutaImagen);
     }
-
     // Eliminar la entrada de la base de datos
     $imagen->delete();
-    
-    
+     
     // Redireccionar de vuelta con un mensaje de éxito
     return back()->with('success', 'La imagen se ha eliminado correctamente.');
 }
@@ -277,6 +275,7 @@ public function storeProduct(Request $request)
         'nombre' => 'required|string|max:255',
         'descripcion' => 'required|string',
         'cantidad' => 'required|integer',
+        'precio' => 'required|integer',
         'categoria_id' => 'required|exists:categorias,id',
         'imagenes.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validar que las imágenes sean archivos de imagen válidos
     ]);
@@ -288,6 +287,7 @@ public function storeProduct(Request $request)
     $producto->estado = 'propuesto'; // Establecer el estado por defecto
     $producto->fecha_publicacion = now(); // Establecer la fecha de publicación con la fecha actual
     $producto->cantidad = $request->cantidad;
+    $producto->precio = $request->precio;
     $producto->categoria_id = $request->categoria_id;
     $producto->propietario_id = Auth::id(); // Asignar el ID del usuario autenticado como propietario del producto
     $producto->save();

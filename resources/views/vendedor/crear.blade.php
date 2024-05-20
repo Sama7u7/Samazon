@@ -30,6 +30,12 @@
                             <br>
 
                             <div class="form-group">
+                                <label for="cantidad">Precio</label>
+                                <input type="number" class="form-control" id="precio" name="precio" required>
+                            </div>
+                            <br>
+
+                            <div class="form-group">
                                 <label for="categoria_id">Categoría</label>
                                 <select class="form-control" id="categoria_id" name="categoria_id" required>
                                     @foreach($categorias as $categoria)
