@@ -41,6 +41,9 @@ Route::middleware(['auth', 'role:supervisor'])->group(function () {
     Route::get('/categorias/delete', [CategoriaController::class, 'delete'])->name('categorias.delete');
     Route::get('categorias/{categoria}/edit', 'CategoriaController@edit')->name('categorias.edit');
     Route::put('categorias/{categoria}', 'CategoriaController@update')->name('categorias.update');
+    Route::get('/transacciones', [TransactionController::class, 'index'])->name('transacciones.index');
+    
+
 });
 
 Route::middleware(['auth', 'role:encargado'])->group(function () {
@@ -135,7 +138,7 @@ Route::get('test/productos/{id}', [ProductoController::class, 'test'])->name('pr
 
 
 
-
+Route::get('/transacciones', [TransactionController::class, 'index'])->name('transacciones.index');
 Route::resource('categorias', CategoriaController::class);
 
 

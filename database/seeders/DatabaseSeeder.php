@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
                     SupervisorSeeder::class,
                     VendedorSeeder::class,
                     CategoriaSeeder::class,
-                    ProductosSeeder::class
+                    ProductosSeeder::class,
+                    ImagenesSeeder::class
+
                 ]
         );
     }

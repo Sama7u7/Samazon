@@ -14,6 +14,7 @@
                         <div class="card">
                         <div id="carousel{{ $producto->id }}" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+                    <br>
                     @foreach ($producto->imagenes as $key => $imagen)
                     <div class="carousel-item{{ $key == 0 ? ' active' : '' }}">
                     <img src="{{ asset('images/productos/' . $imagen->nombre) }}" class="d-block mx-auto img-fluid" alt="{{ $producto->nombre }}" style="max-width: 200px; margin: 0 auto;">

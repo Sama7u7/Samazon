@@ -122,5 +122,11 @@ class TransactionController extends Controller
         return redirect()->back()->with('success', 'Calificación guardada correctamente');
     }
 
+    public function index()
+    {
+        $transacciones = Transaction::with(['usuario', 'productos'])->get();
+        return view('supervisor.index', compact('transacciones'));
+    }
+
 
 }

@@ -49,6 +49,7 @@
                 <div class="card-header">Últimas Transacciones</div>
                 <div class="card-body">
                     <!-- Contenido de las últimas transacciones aquí -->
+                    <a href="{{ route('transacciones.index') }}" class="btn btn-primary btn-lg btn-block">Ver transacciones</a>
                 </div>
             </div>
         </div>

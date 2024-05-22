@@ -13,8 +13,12 @@ class Usuario extends Model implements AuthenticatableContract
     
     protected $table = 'usuarios';
     protected $fillable = [
+        'nombre',
+        'apellido_paterno',
+        'apellido_materno', 
         'email',
         'password',
+        'genero',
         'role',
     ];
     public function productos()

@@ -3,6 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+            <br>
             <!-- Mostrar la imagen del producto -->
             <img src="{{ $producto->imagen }}" class="img-fluid" alt="{{ $producto->nombre }}">
         </div>

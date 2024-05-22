@@ -1,4 +1,4 @@
-@extends('layouts.master-supervisor')
+@extends('layouts.master-usuarios')
 
 @section('content')
 

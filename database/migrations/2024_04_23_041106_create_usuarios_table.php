@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('role');
-            $table->string('email');
+            $table->string('email')->unique(); // Agrega la restricción unique
             $table->string('nombre')->nullable()->default(null);
             $table->string('apellido_paterno')->nullable()->default(null);
             $table->string('apellido_materno')->nullable()->default(null);

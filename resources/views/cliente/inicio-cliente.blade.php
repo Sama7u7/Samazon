@@ -33,6 +33,7 @@
         @foreach($productos as $producto)
         <div class="col-md-4 mb-4">
             <div class="card">
+                <br>
                 @if($producto->imagenes->isNotEmpty())
                 <div id="carousel{{ $producto->id }}" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">

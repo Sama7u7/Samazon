@@ -29,13 +29,13 @@
             <input type="text" name="apellido_paterno" placeholder="Apellido Paterno" required>
             <input type="text" name="apellido_materno" placeholder="Apellido Materno" required>
             <input type="email" name="email" placeholder="Correo electrónico" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="password" placeholder="Contraseña minimimo 8 caracteres" required>
             <select name="genero" required>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
             <!-- Por defecto, asigna el rol de cliente -->
-            <input type="hidden" name="role" value="cliente">
+            
         
             <input type="submit" value="Registrarse">
         </form>

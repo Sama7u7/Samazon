@@ -147,7 +147,7 @@ public function store(Request $request)
             'nombre' => 'required|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:usuarios',
             'password' => 'required|string|min:8',
             'genero' => 'required|in:Masculino,Femenino',
         ]);
